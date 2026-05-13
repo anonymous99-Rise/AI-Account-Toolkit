@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.4.0] - 2026-05-13
+
+### Added
+- gopay-plus-auto 子模块 (`packages/general/gopay-plus-auto`) - Gopay+ 自动化工具
+- GitHub Workflow (`.github/workflows/submodule-sync.yml`) - 定时同步子模块状态，确保最新代码拉取成功
+- `update_summary.md` - 项目更新摘要文件
+
 ## [2.3.0] - 2026-04-10
 
 ### Added
@@ -20,6 +27,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - grok2api 子模块 (`packages/grok/grok2api`) - Grok API 转换服务
+- real-random-taxfree-address 子模块 (`packages/general/real-random-taxfree-address`) - 美国真实随机免税地址生成工具
 
 ## [2.1.0] - 2026-03-27
 

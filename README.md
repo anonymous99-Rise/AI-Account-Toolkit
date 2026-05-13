@@ -86,7 +86,9 @@ AI-Account-Toolkit/
         ├── any-auto-register/ # 多平台账号自动注册工具
         ├── api-key-scraper/ # 多平台 API 密钥抓取工具
         ├── mregister/       # ChatGPT 注册机 Web UI
-        └── exa-free/        # Exa 免费使用工具
+        ├── exa-free/        # Exa 免费使用工具
+        ├── real-random-taxfree-address/ # 真实随机免税地址生成
+        └── gopay-plus-auto/ # Gopay+ 自动化工具
 ```
 
 ---
@@ -373,6 +375,12 @@ AI-Account-Toolkit/
 
 **使用指南**：[packages/general/real-random-taxfree-address/README.md](packages/general/real-random-taxfree-address/README.md)
 
+#### 41. gopay-plus-auto - Gopay+ 自动化工具
+
+**功能**：Gopay+ 平台自动化操作工具，支持批量支付、充值及账户维护.
+
+**使用指南**：[packages/general/gopay-plus-auto/README.md](packages/general/gopay-plus-auto/README.md)
+
 ---
 
 ## 快速开始
@@ -400,7 +408,7 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 
 ### 3. 子模块列表
 
-本项目包含以下子模块（共 21 个）：
+本项目包含以下子模块（共 22 个）：
 
 | 分类 | 子模块 | 说明 |
 |------|--------|------|
@@ -425,6 +433,7 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 | | `packages/general/mregister/` | ChatGPT 注册机 Web UI |
 | | `packages/general/exa-free/` | Exa 免费使用工具 |
 | | `packages/general/real-random-taxfree-address/` | 真实随机免税地址生成 |
+| | `packages/general/gopay-plus-auto/` | Gopay+ 自动化工具 |
 
 ### 4. 运行项目
 
@@ -485,4 +494,4 @@ python packages/general/any-auto-register/main.py
 
 ---
 
-**License**: [MIT](LICENSE) | **更新日期**：2026-04-10 | **版本**：2.3.0
+**License**: [MIT](LICENSE) | **更新日期**：2026-05-13 | **版本**：2.4.0

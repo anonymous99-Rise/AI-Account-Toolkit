@@ -61,3 +61,6 @@
 [submodule "packages/grok/grok2api"]
 	path = packages/grok/grok2api
 	url = https://github.com/satangel2222/grok2api.git
+[submodule "packages/general/gopay-plus-auto"]
+	path = packages/general/gopay-plus-auto
+	url = https://github.com/ywnd1144/Gopay_plus_automatic.git
