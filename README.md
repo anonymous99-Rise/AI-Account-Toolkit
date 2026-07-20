@@ -105,7 +105,7 @@ AI-Account-Toolkit/
 
 ```bash
 # 递归拉取所有依赖项目
-git clone --recurse-submodules https://github.com/adminlove520/AI-Account-Toolkit.git
+git clone --recurse-submodules https://github.com/anonymous99-Rise/AI-Account-Toolkit.git
 cd AI-Account-Toolkit
 
 # 如已克隆，运行此命令初始化

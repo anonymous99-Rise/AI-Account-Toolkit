@@ -36,7 +36,7 @@ For English contributors: please fill in English. All fields marked (EN) accept 
 
 ```bash
 # example
-git clone --recurse-submodules https://github.com/adminlove520/AI-Account-Toolkit.git
+git clone --recurse-submodules https://github.com/anonymous99-Rise/AI-Account-Toolkit.git
 git submodule status
 ```
 

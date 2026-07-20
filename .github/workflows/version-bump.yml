@@ -37,8 +37,15 @@ jobs:
       - name: Get latest version
         id: get_version
         run: |
-          latest_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "v2.5.0")
-          echo "Latest tag: $latest_tag"
+          latest_tag=$(git describe --tags --abbrev=0 2>/dev/null)
+          if [[ -z "$latest_tag" ]]; then
+            echo "No tags found, using v2.5.0 as base"
+            latest_tag="v2.5.0"
+            echo "has_previous_tag=false" >> $GITHUB_OUTPUT
+          else
+            echo "Latest tag: $latest_tag"
+            echo "has_previous_tag=true" >> $GITHUB_OUTPUT
+          fi
           echo "latest_tag=$latest_tag" >> $GITHUB_OUTPUT
 
           # Extract version numbers
@@ -133,7 +140,14 @@ jobs:
 
           # Get commit messages since last tag
           latest_tag=${{ steps.get_version.outputs.latest_tag }}
-          commits=$(git log ${latest_tag}..HEAD --pretty=format:"%s")
+          has_previous_tag=${{ steps.get_version.outputs.has_previous_tag }}
+
+          if [[ "$has_previous_tag" == "true" ]]; then
+            commits=$(git log ${latest_tag}..HEAD --pretty=format:"%s")
+          else
+            # No previous tag — get all commits from history
+            commits=$(git log --pretty=format:"%s")
+          fi
 
           # Prepare new changelog entry
           new_entry="## [${new_version#v}] - ${current_date}\n\n"
@@ -182,7 +196,7 @@ jobs:
           body: |
             ## ${{ steps.new_version.outputs.new_version }}
 
-            See [CHANGELOG.md](https://github.com/adminlove520/AI-Account-Toolkit/blob/main/CHANGELOG.md) for details.
+            See [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/CHANGELOG.md) for details.
           draft: false
           prerelease: false
         env:

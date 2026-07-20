@@ -81,7 +81,7 @@
 	url = https://github.com/SreejanPersonal/Free-Unoffical-OpenAI-API.git
 [submodule "packages/codex/CPA-Manager-Plus"]
 	path = packages/codex/CPA-Manager-Plus
-	url = https://github.com/adminlove520/CPA-Manager-Plus.git
+	url = https://github.com/seakee/CPA-Manager-Plus.git
 [submodule "packages/openai/oai-Team-SSO-OIDC"]
 	path = packages/openai/oai-Team-SSO-OIDC
 	url = https://github.com/otso2200/oai-Team-SSO-OIDC.git
