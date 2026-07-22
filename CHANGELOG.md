@@ -7,15 +7,12 @@ All notable changes to this project will be documented in this file. This projec
 ## [2.6.0] - 2026-07-22
 
 ### ✨ Added
-
-### 🔧 Fixed
-
-
-## [2.6.1] - 2026-07-22
-
-### ✨ Added
-- **nvidia-register** (`packages/nvidia/nvidia-register`): NVIDIA 账号自动注册工具。
-- **gpt-outlook-register**: 基于 Outlook 的 ChatGPT 账号自动注册，支持短信验证与指纹管理。
+- **gpt-outlook-register**: 基于 Outlook 的 ChatGPT 账号自动注册工具
+  - 绕过验证码的 GPT Free 注册流程
+  - 用法: `cd gpt-outlook-register && pip install -r requirements.txt && python start_webui.py`
+- **nvidia-register** (`packages/nvidia/nvidia-register`): NVIDIA 账号半自动注册工具
+  - 自动注册 NVIDIA BUILD 账号
+  - 自动创建 AI_PLAYGROUNDS_KEY
 - 子模块总数从 32 个增加到 33 个
 
 ### 🔧 Fixed

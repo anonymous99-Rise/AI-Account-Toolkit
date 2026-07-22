@@ -196,4 +196,4 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 
 本仓库提供的所有内容仅供学习与参考，开发者不对因使用本工具导致的账号封禁、数据丢失或任何直接/间接损失负责。如有侵权内容，请联系删除。
 
-**License**: [MIT](LICENSE) | **Updated**: 2026-07-22 | **Version**: 2.6.1
+**License**: [MIT](LICENSE) | **Updated**: 2026-07-22 | **Version**: 2.6.0
