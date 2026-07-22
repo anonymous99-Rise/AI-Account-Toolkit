@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file. This projec
 
 ---
 
+## [2.6.1] - 2026-07-22
+
+### ✨ Added
+
+### 🔧 Fixed
+
+
 ## [2.6.0] - 2026-07-22
 
 ### ✨ Added

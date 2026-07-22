@@ -2,7 +2,7 @@
 
 *浴血重生*
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-2.6.0-orange.svg?style=flat-square)](https://github.com/anonymous99-Rise/AI-Account-Toolkit/releases)
+[![Version](https://img.shields.io/badge/Version-2.6.1-orange.svg?style=flat-square)](https://github.com/anonymous99-Rise/AI-Account-Toolkit/releases)
 [![GitHub stars](https://img.shields.io/github/stars/anonymous99-Rise/AI-Account-Toolkit?style=flat-square&color=gold)](https://github.com/anonymous99-Rise/AI-Account-Toolkit/stargazers)
 [![GitHub last commit](https://img.shields.io/github/last-commit/anonymous99-Rise/AI-Account-Toolkit?style=flat-square)](https://github.com/anonymous99-Rise/AI-Account-Toolkit/commits/main)
 
