@@ -94,3 +94,6 @@
 [submodule "packages/openai/gpt-trahatel"]
 	path = packages/openai/gpt-trahatel
 	url = https://github.com/gfhfyjbr/gpt-trahatel.git
+[submodule "packages/nvidia/nvidia-register"]
+	path = packages/nvidia/nvidia-register
+	url = https://github.com/anonymous99-Rise/nvidia-register.git
