@@ -71,43 +71,81 @@ AI-Account-Toolkit/
 
 ### 🤖 OpenAI 模块 (packages/openai)
 
-- **[chatgpt-auto-register](packages/openai/chatgpt-auto-register/README.md)**: 基于 Selenium 的高成功率全自动注册流程。
-- **[openai-auto-register](packages/openai/openai-auto-register/README.md)**: 强化版流水线，具备较强的反检测与验证码对抗能力。
-- **[free-unofficial-api](packages/openai/free-unofficial-openai-api/README.md)**: 支持 GPT-4o 及其最新音频预览模型的免费 API 服务。
-- **[ab-card](packages/openai/ab-card/README.md)**: 自动开通 ChatGPT Business/Plus 套餐（首月免月费）。
-- **[oai-Team-SSO-OIDC](packages/openai/oai-Team-SSO-OIDC/README.md)**: OpenAI Team SSO OIDC 协议实现，支持企业级注册流程。
-- **[gpt-trahatel](packages/openai/gpt-trahatel/README.md)**: GPT 相关工具集。
+| 项目 | 描述 |
+| :--- | :--- |
+| **[chatgpt-auto-register](packages/openai/chatgpt-auto-register/README.md)** | 基于 Selenium 的高成功率全自动注册流程。 |
+| **[openai-auto-register](packages/openai/openai-auto-register/README.md)** | 强化版流水线，具备较强的反检测与验证码对抗能力。 |
+| **[free-unofficial-openai-api](packages/openai/free-unofficial-openai-api/README.md)** | 支持 GPT-4o 及其最新音频预览模型的免费 API 服务。 |
+| **[ab-card](packages/openai/ab-card/README.md)** | 自动开通 ChatGPT Business/Plus 套餐（首月免月费）。 |
+| **[oai-Team-SSO-OIDC](packages/openai/oai-Team-SSO-OIDC/README.md)** | OpenAI Team SSO OIDC 协议实现，支持企业级注册流程。 |
+| **[gpt-trahatel](packages/openai/gpt-trahatel/README.md)** | GPT 相关工具集。 |
 
 ### 🛡️ 逆向与通用工具 (packages/general)
 
-- **[gpt4free](packages/general/gpt4free/README.md)**: **[强烈推荐]** 聚合数十个第三方接口，支持全系列顶尖模型。
-- **[open-proxy-ai](packages/general/open-proxy-ai/README.md)**: 针对 GPT-4o 深度优化的极速逆向代理服务。
-- **[cockpit-tools](packages/general/cockpit-tools/README.md)**: OpenAI Cockpit 管理工具集。
-- **[any-auto-register](packages/general/any-auto-register/README.md)**: 模块化账号注册框架，支持多平台扩展。
-- **[all-in-one-register](packages/general/all-in-one-register/README.md)**: 集成 OpenAI/Grok/Tavily 的综合自动化注册机。
+| 项目 | 描述 |
+| :--- | :--- |
+| **[gpt4free](packages/general/gpt4free/README.md)** | 聚合数十个第三方接口，支持全系列顶尖模型。 |
+| **[open-proxy-ai](packages/general/open-proxy-ai/README.md)** | 针对 GPT-4o 深度优化的极速逆向代理服务。 |
+| **[cockpit-tools](packages/general/cockpit-tools/README.md)** | OpenAI Cockpit 管理工具集。 |
+| **[any-auto-register](packages/general/any-auto-register/README.md)** | 模块化账号注册框架，支持多平台扩展。 |
+| **[all-in-one-register](packages/general/all-in-one-register/README.md)** | 集成 OpenAI/Grok/Tavily 的综合自动化注册机。 |
+| **[exa-free](packages/general/exa-free/README.md)** | Exa 搜索引擎免费 API 服务。 |
+| **[api-key-scraper](packages/general/api-key-scraper/README.md)** | 多平台 API Key 批量获取工具。 |
+| **[mregister](packages/general/mregister/README.md)** | 多平台注册管理器。 |
+| **[real-random-taxfree-address](packages/general/real-random-taxfree-address/README.md)** | 生成真实随机免税地址。 |
+| **[gopay-plus-auto](packages/general/gopay-plus-auto/README.md)** | GoPay Plus 自动注册与充值工具。 |
 
 ### 📜 Codex 模块 (packages/codex)
 
-- **[CPA-Manager-Plus](packages/codex/CPA-Manager-Plus/README.md)**: Codex Plus Account 管理工具，支持 Token 批量管理与转换。
-- **[CPA2sub2API](packages/codex/CPA2sub2API/README.md)**: CPA 格式 Token 转 sub2api 格式工具。
-- **[codex-lb](packages/codex/codex-lb/README.md)**: Codex 负载均衡器。
-- **[codex-register](packages/codex/codex-register/README.md)**: Codex 账号协议注册机。
-- **[codex-register-fix](packages/codex/codex-register-fix/README.md)**: Codex 注册修复增强版。
+| 项目 | 描述 |
+| :--- | :--- |
+| **[CPA-Manager-Plus](packages/codex/CPA-Manager-Plus/README.md)** | Codex Plus Account 管理工具，支持 Token 批量管理与转换。 |
+| **[CPA2sub2API](packages/codex/CPA2sub2API/README.md)** | CPA 格式 Token 转 sub2api 格式工具。 |
+| **[codex-lb](packages/codex/codex-lb/README.md)** | Codex/ChatGPT 账号负载均衡器，支持多账号池化与用量追踪。 |
+| **[codex-register](packages/codex/codex-register/README.md)** | Codex 账号协议注册机。 |
+| **[codex-register-fix](packages/codex/codex-register-fix/README.md)** | Codex 注册修复增强版。 |
 
 ### 🐦 Grok 模块 (packages/grok)
 
-| 项目 | 功能 | 架构 |
-| :--- | :--- | :--- |
-| **[grok-register](packages/grok/grok-register/README.md)** | Python 版批量注册机 | 协议 + Selenium |
-| **[grok-register-charles](packages/grok/grok-register-charles/README.md)** | Go 版注册→OAuth→CPA输出二合一CLI | TLS指纹 + Turnstile |
-| **[grok2api](packages/grok/grok2api/README.md)** | Token 转 API 协议转换 | - |
-| **[grokcli-2api](packages/grok/grokcli-2api/README.md)** | Grok CLI 转 API 接口 | - |
+| 项目 | 描述 |
+| :--- | :--- |
+| **[grok-register](packages/grok/grok-register/README.md)** | Grok 免费号注册→OAuth→CPA输出的二合一 CLI（Go）。 |
+| **[grok-register-charles](packages/grok/grok-register-charles/README.md)** | Go 版注册→OAuth→CPA输出二合一CLI，支持 TLS 指纹与 Turnstile。 |
+| **[grok2api](packages/grok/grok2api/README.md)** | 基于 FastAPI 的 Grok API 服务，支持流式对话、图像/视频生成与号池负载均衡。 |
+| **[grokcli-2api](packages/grok/grokcli-2api/README.md)** | 将 Grok OIDC 登录态转为 OpenAI/Anthropic 兼容 API，带 Web 管理台。 |
 
 ### 📧 邮箱服务 (packages/email)
 
-- **[cloudflare-temp-email](packages/email/cloudflare-temp-email/README.md)**: 基于 Cloudflare 的工业级临时邮箱，支持 Rust WASM 解析。
-- **[tempmail](packages/email/tempmail/README.md)**: 自托管 Docker 临时邮箱方案，带管理后台。
-- **[ms-oauth2-api](packages/email/ms-oauth2-api/README.md)**: 微软系邮箱（Hotmail/Outlook）OAuth2 自动取件 API。
+| 项目 | 描述 |
+| :--- | :--- |
+| **[cloudflare-temp-email](packages/email/cloudflare-temp-email/README.md)** | 基于 Cloudflare 的工业级临时邮箱，支持 Rust WASM 解析。 |
+| **[tempmail](packages/email/tempmail/README.md)** | 自托管 Docker 临时邮箱方案，带管理后台与 MX 自动验证。 |
+| **[ms-oauth2-api](packages/email/ms-oauth2-api/README.md)** | 微软系邮箱（Hotmail/Outlook）OAuth2 自动取件 API。 |
+| **[hotmail-outlook-auto-register](packages/email/hotmail-outlook-auto-register/README.md)** | Hotmail/Outlook 账号自动注册工具，支持验证码绕过与代理轮换。 |
+
+### 🖱️ Cursor 模块 (packages/cursor)
+
+| 项目 | 描述 |
+| :--- | :--- |
+| **[cursor-auto-register](packages/cursor/cursor-auto-register/README.md)** | Cursor 账号自动注册工具。 |
+
+### ⚔️ Claude 模块 (packages/claude)
+
+| 项目 | 描述 |
+| :--- | :--- |
+| **[claude-key-switch](packages/claude/claude-key-switch/README.md)** | Claude 密钥轮换与动态负载均衡工具。 |
+
+### 💎 Gemini 模块 (packages/gemini)
+
+| 项目 | 描述 |
+| :--- | :--- |
+| **[gemini-balance-do](packages/gemini/gemini-balance-do/README.md)** | Gemini 余额查询与 Cloudflare DO 代理转发服务。 |
+
+### 🔱 NVIDIA 模块 (packages/nvidia)
+
+| 项目 | 描述 |
+| :--- | :--- |
+| **[nvidia-register](packages/nvidia/nvidia-register/README.md)** | 半自动注册 NVIDIA BUILD 账号并自动创建 AI_PLAYGROUNDS_KEY。 |
 
 ---
 
@@ -164,7 +202,7 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 
 > 如果使用原生 Windows CMD/PowerShell，可使用：
 > ```powershell
-> Get-ChildItem -Recurse -Filter "requirements.txt" | ForEach-Object { pip install -r $_.FullName }
+> Get-ChildItem -Recurse -Filter requirements.txt | ForEach-Object { pip install -r $_.FullName }
 > ```
 </details>
 
