@@ -238,9 +238,13 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 
 ## 📈 Star History
 
-<img src="https://api.star-history.com/svg?repos=anonymous99-Rise/AI-Account-Toolkit&type=Date&theme=light" alt="Star History" style="max-width: 100%;">
-
-*[Interactive Chart](https://star-history.com/#anonymous99-Rise/AI-Account-Toolkit&type=Date)*
+<a href="https://www.star-history.com/?repos=anonymous99-Rise%2FAI-Account-Toolkit&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=anonymous99-Rise/AI-Account-Toolkit&type=date&theme=dark&legend=top-left&sealed_token=5rM73o7N7FVFeKPz25o_cGaUkjXzF_qI3cBOQV-GriWMEAemZ71V4vBmE150MLnjM0U-GLF3G9Ovih8h2G8To7CeBrWYSdKuxQ9yCPVE35lOlig15qYtPQ" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=anonymous99-Rise/AI-Account-Toolkit&type=date&legend=top-left&sealed_token=5rM73o7N7FVFeKPz25o_cGaUkjXzF_qI3cBOQV-GriWMEAemZ71V4vBmE150MLnjM0U-GLF3G9Ovih8h2G8To7CeBrWYSdKuxQ9yCPVE35lOlig15qYtPQ" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=anonymous99-Rise/AI-Account-Toolkit&type=date&legend=top-left&sealed_token=5rM73o7N7FVFeKPz25o_cGaUkjXzF_qI3cBOQV-GriWMEAemZ71V4vBmE150MLnjM0U-GLF3G9Ovih8h2G8To7CeBrWYSdKuxQ9yCPVE35lOlig15qYtPQ" />
+ </picture>
+</a>
 
 ---
 
