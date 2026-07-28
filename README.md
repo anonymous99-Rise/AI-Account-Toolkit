@@ -238,7 +238,9 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 
 ## 📈 Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=anonymous99-Rise/AI-Account-Toolkit&type=Date)](https://star-history.com/#anonymous99-Rise/AI-Account-Toolkit&type=Date)
+<img src="https://api.star-history.com/svg?repos=anonymous99-Rise/AI-Account-Toolkit&type=Date&theme=light" alt="Star History" style="max-width: 100%;">
+
+*[Interactive Chart](https://star-history.com/#anonymous99-Rise/AI-Account-Toolkit&type=Date)*
 
 ---
 
