@@ -96,10 +96,12 @@ AI-Account-Toolkit/
 
 ### 🐦 Grok 模块 (packages/grok)
 
-- **[grok-register](packages/grok/grok-register/README.md)**: x.ai 批量注册机。
-- **[grok-register-charles](packages/grok/grok-register-charles/README.md)**: Charles 版 x.ai 批量注册机。
-- **[grok2api](packages/grok/grok2api/README.md)**: Grok API 协议转换工具。
-- **[grokcli-2api](packages/grok/grokcli-2api/README.md)**: Grok CLI 转 API 工具。
+| 项目 | 功能 | 架构 |
+| :--- | :--- | :--- |
+| **[grok-register](packages/grok/grok-register/README.md)** | Python 版批量注册机 | 协议 + Selenium |
+| **[grok-register-charles](packages/grok/grok-register-charles/README.md)** | Go 版注册→OAuth→CPA输出二合一CLI | TLS指纹 + Turnstile |
+| **[grok2api](packages/grok/grok2api/README.md)** | Token 转 API 协议转换 | - |
+| **[grokcli-2api](packages/grok/grokcli-2api/README.md)** | Grok CLI 转 API 接口 | - |
 
 ### 📧 邮箱服务 (packages/email)
 
