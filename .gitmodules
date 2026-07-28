@@ -100,3 +100,6 @@
 [submodule "packages/grok/grokcli-2api"]
 	path = packages/grok/grokcli-2api
 	url = https://github.com/HM2899/grokcli-2api.git
+[submodule "packages/grok/grok-register-charles"]
+	path = packages/grok/grok-register-charles
+	url = https://github.com/Charles-0509/Grok-Register.git

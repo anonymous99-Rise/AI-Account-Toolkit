@@ -97,6 +97,7 @@ AI-Account-Toolkit/
 ### 🐦 Grok 模块 (packages/grok)
 
 - **[grok-register](packages/grok/grok-register/README.md)**: x.ai 批量注册机。
+- **[grok-register-charles](packages/grok/grok-register-charles/README.md)**: Charles 版 x.ai 批量注册机。
 - **[grok2api](packages/grok/grok2api/README.md)**: Grok API 协议转换工具。
 - **[grokcli-2api](packages/grok/grokcli-2api/README.md)**: Grok CLI 转 API 工具。
 
@@ -169,7 +170,7 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 
 ---
 
-## 📋 子模块列表 (共 34 个)
+## 📋 子模块列表 (共 35 个)
 
 | 分类 | 路径 | 核心功能 |
 | :--- | :--- | :--- |
