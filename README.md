@@ -1,9 +1,11 @@
-# 🛠️ AI-Account-Toolkit
+<h1 align="center">🛠️ AI-Account-Toolkit</h1>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-2.8.3-orange.svg?style=flat-square)](https://github.com/anonymous99-Rise/AI-Account-Toolkit/releases)
-[![GitHub stars](https://img.shields.io/github/stars/anonymous99-Rise/AI-Account-Toolkit?style=flat-square&color=gold)](https://github.com/anonymous99-Rise/AI-Account-Toolkit/stargazers)
-[![GitHub last commit](https://img.shields.io/github/last-commit/anonymous99-Rise/AI-Account-Toolkit?style=flat-square)](https://github.com/anonymous99-Rise/AI-Account-Toolkit/commits/main)
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="License: MIT"></a>
+  <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/releases"><img src="https://img.shields.io/badge/Version-2.8.3-orange.svg?style=flat-square" alt="Version"></a>
+  <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/stargazers"><img src="https://img.shields.io/github/stars/anonymous99-Rise/AI-Account-Toolkit?style=flat-square&color=gold" alt="GitHub stars"></a>
+  <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/commits/main"><img src="https://img.shields.io/github/last-commit/anonymous99-Rise/AI-Account-Toolkit?style=flat-square" alt="GitHub last commit"></a>
+</p>
 
 **AI 账号注册与管理一站式工具集** — 涵盖 ChatGPT、Claude、Gemini、Codex、Cursor、Grok 批量注册、Token 管理、自动化流水线、逆向 API 及临时邮箱服务等 40+ 核心工具。
 
@@ -236,7 +238,7 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 
 ## 📈 Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=anonymous99-Rise/AI-Account-Toolkit&type=Date)](https://star-history.com/#anonymous99-Rise/AI-Account-Toolkit&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=anonymous99-Rise/AI-Account-Toolkit&type=Date)](https://star-history.com/#anonymous99-Rise/AI-Account-Toolkit&type=Date)
 
 ---
 
