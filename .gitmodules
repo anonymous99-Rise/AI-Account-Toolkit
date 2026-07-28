@@ -97,3 +97,6 @@
 [submodule "packages/nvidia/nvidia-register"]
 	path = packages/nvidia/nvidia-register
 	url = https://github.com/anonymous99-Rise/nvidia-register.git
+[submodule "packages/grok/grokcli-2api"]
+	path = packages/grok/grokcli-2api
+	url = https://github.com/HM2899/grokcli-2api.git

@@ -20,7 +20,8 @@ All notable changes to this project will be documented in this file. This projec
 - **nvidia-register** (`packages/nvidia/nvidia-register`): NVIDIA 账号半自动注册工具
   - 自动注册 NVIDIA BUILD 账号
   - 自动创建 AI_PLAYGROUNDS_KEY
-- 子模块总数从 32 个增加到 33 个
+- **grokcli-2api** (`packages/grok/grokcli-2api`): Grok CLI 转 API 工具
+- 子模块总数从 33 个增加到 34 个
 
 ### 🔧 Fixed
 

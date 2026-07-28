@@ -1,6 +1,5 @@
 # 🛠️ AI-Account-Toolkit
 
-*浴血重生*
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 [![Version](https://img.shields.io/badge/Version-2.6.1-orange.svg?style=flat-square)](https://github.com/anonymous99-Rise/AI-Account-Toolkit/releases)
 [![GitHub stars](https://img.shields.io/github/stars/anonymous99-Rise/AI-Account-Toolkit?style=flat-square&color=gold)](https://github.com/anonymous99-Rise/AI-Account-Toolkit/stargazers)
@@ -9,6 +8,8 @@
 **AI 账号注册与管理一站式工具集** — 涵盖 ChatGPT、Claude、Gemini、Codex、Cursor、Grok 批量注册、Token 管理、自动化流水线、逆向 API 及临时邮箱服务等 40+ 核心工具。
 
 > _A curated high-performance collection of 40+ tools for AI account automation — covering registration, token management, reverse APIs, and self-hosted email services._
+
+> ⚠️ **维护说明**: 原 `adminlove520` 账户已停止使用，当前及后续更新均在此 `anonymous99-Rise` 账户发布。
 
 ---
 
@@ -93,6 +94,12 @@ AI-Account-Toolkit/
 - **[codex-register](packages/codex/codex-register/README.md)**: Codex 账号协议注册机。
 - **[codex-register-fix](packages/codex/codex-register-fix/README.md)**: Codex 注册修复增强版。
 
+### 🐦 Grok 模块 (packages/grok)
+
+- **[grok-register](packages/grok/grok-register/README.md)**: x.ai 批量注册机。
+- **[grok2api](packages/grok/grok2api/README.md)**: Grok API 协议转换工具。
+- **[grokcli-2api](packages/grok/grokcli-2api/README.md)**: Grok CLI 转 API 工具。
+
 ### 📧 邮箱服务 (packages/email)
 
 - **[cloudflare-temp-email](packages/email/cloudflare-temp-email/README.md)**: 基于 Cloudflare 的工业级临时邮箱，支持 Rust WASM 解析。
@@ -162,7 +169,7 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 
 ---
 
-## 📋 子模块列表 (共 33 个)
+## 📋 子模块列表 (共 34 个)
 
 | 分类 | 路径 | 核心功能 |
 | :--- | :--- | :--- |
@@ -171,7 +178,7 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 | **Gemini** | `packages/gemini/` | 余额查询、Cloudflare DO 代理转发 |
 | **Codex** | `packages/codex/` | 协议注册、LB 负载均衡、授权修复 |
 | **Cursor** | `packages/cursor/` | 账号自动注册与管理 |
-| **Grok** | `packages/grok/` | x.ai 批量注册机、API 协议转换 |
+| **Grok** | `packages/grok/` | x.ai 批量注册机、CLI/协议转换 |
 | **NVIDIA** | `packages/nvidia/` | NVIDIA 账号自动注册 |
 | **General** | `packages/general/` | **gpt4free**, 注册聚合, 支付自动化, 免税地址生成 |
 
@@ -196,4 +203,4 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 
 本仓库提供的所有内容仅供学习与参考，开发者不对因使用本工具导致的账号封禁、数据丢失或任何直接/间接损失负责。如有侵权内容，请联系删除。
 
-**License**: [MIT](LICENSE) | **Updated**: 2026-07-22 | **Version**: 2.6.0
+**License**: [MIT](LICENSE) | **Updated**: 2026-07-28 | **Version**: 2.6.0
