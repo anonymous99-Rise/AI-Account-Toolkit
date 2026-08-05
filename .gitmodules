@@ -103,3 +103,9 @@
 [submodule "packages/grok/grok-register-charles"]
 	path = packages/grok/grok-register-charles
 	url = https://github.com/Charles-0509/Grok-Register.git
+[submodule "packages/grok/grok-register-panel"]
+	path = packages/grok/grok-register-panel
+	url = https://github.com/lij768423-svg/grok-register-panel.git
+[submodule "packages/grok/grok2api-egress-enhancements"]
+	path = packages/grok/grok2api-egress-enhancements
+	url = https://github.com/TreasureBoy520/grok2api-egress-enhancements.git

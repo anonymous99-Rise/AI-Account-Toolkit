@@ -36,6 +36,7 @@
 ```text
 AI-Account-Toolkit/
 ├── 📂 CPAtools/                # Codex 账号状态管理与自动清理
+├── 📂 grokRegister-cpa/        # Grok 批量注册 → OAuth → CPA 入库 (GUI + CLI)
 ├── 📂 GPT-team/                # ChatGPT Team 协议注册机 (CF 邮箱版)
 ├── 📂 team/                    # ChatGPT Team 纯协议注册机 (支持续签)
 ├── 📂 team_all-in-one/         # Team 注册一站式管理后台
@@ -65,6 +66,7 @@ AI-Account-Toolkit/
 | 项目名称 | 功能描述 | 快速入口 |
 | :--- | :--- | :--- |
 | **CPAtools** | 批量验证 Codex 账号状态，自动移除失效 Token。 | [README](CPAtools/README.md) |
+| **grokRegister-cpa** | Grok 批量注册机，Camoufox 反检测 + 多临时邮箱 + 注册后自动 OAuth 入库 CPA（本地目录 / 远程 Management API）。 | [README](grokRegister-cpa/README.md) |
 | **GPT-team** | 纯协议注册 ChatGPT Team 子号，支持拉人、授权与自动上传。 | [README](GPT-team/README.md) |
 | **team** | ChatGPT Team 纯协议注册机，支持 Token 续签与批量注册。 | [README](team/README.md) |
 | **team-all-in-one** | 可视化注册管理系统，支持多邮箱源、代理轮换及 Token 导出。 | [README](team_all-in-one/README.md) |
@@ -115,6 +117,8 @@ AI-Account-Toolkit/
 | **[grok-register-charles](packages/grok/grok-register-charles/README.md)** | Go 版注册→OAuth→CPA输出二合一CLI，支持 TLS 指纹与 Turnstile。 |
 | **[grok2api](packages/grok/grok2api/README.md)** | 基于 FastAPI 的 Grok API 服务，支持流式对话、图像/视频生成与号池负载均衡。 |
 | **[grokcli-2api](packages/grok/grokcli-2api/README.md)** | 将 Grok OIDC 登录态转为 OpenAI/Anthropic 兼容 API，带 Web 管理台。 |
+| **[grok-register-panel](packages/grok/grok-register-panel/README.md)** | Grok 注册机 + 管理面板，支持多维度管理 Grok 账号。 |
+| **[grokRegister-cpa](../grokRegister-cpa/README.md)** | Grok 批量注册 + Camoufox 反检测 + 多邮箱支持 + 注册后自动 OAuth 入库 CPA（GUI + CLI）。 |
 
 ### 📧 邮箱服务 (packages/email)
 
@@ -221,7 +225,7 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 | **Gemini** | `packages/gemini/` | 余额查询、Cloudflare DO 代理转发 |
 | **Codex** | `packages/codex/` | 协议注册、LB 负载均衡、授权修复 |
 | **Cursor** | `packages/cursor/` | 账号自动注册与管理 |
-| **Grok** | `packages/grok/` | x.ai 批量注册机、CLI/协议转换 |
+| **Grok** | `packages/grok/`, `grokRegister-cpa/` | x.ai 批量注册机、分类面板、CLI/协议转换、CPA 入库 |
 | **NVIDIA** | `packages/nvidia/` | NVIDIA 账号自动注册 |
 | **General** | `packages/general/` | **gpt4free**, 注册聚合, 支付自动化, 免税地址生成 |
 

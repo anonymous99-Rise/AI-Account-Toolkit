@@ -1,0 +1,2 @@
+DrissionPage==4.1.1.4
+curl_cffi==0.13.0

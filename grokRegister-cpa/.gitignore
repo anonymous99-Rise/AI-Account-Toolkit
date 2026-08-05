@@ -1,0 +1,47 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+
+accounts_*.txt
+mail_credentials.txt
+sso_pending.txt
+accounts/
+*.txt
+!requirements.txt
+
+config.json
+config.local.json
+config.local.*
+*.bak
+
+# 真实账号凭证 / OAuth token 输出，禁止提交
+auth_out.json
+auth_out/
+auth_merged.json
+*.auth.json
+xai-*.json
+auth_403/
+sso_list.txt
+token.json
+
+*.log
+# consent Next-Action 本地缓存（运行时写入，勿提交）
+.next_action_id.cache
+# 调试产物（页面 dump 可能含真实账号信息）
+artifacts/
+
+.DS_Store
+.idea/
+.vscode/
+DrissionPage/
+autoPortData/
+
+# 归档目录（冗余/调试文件，待确认后删除）
+_archive/
+# 本地 IDE 配置
+.claude/

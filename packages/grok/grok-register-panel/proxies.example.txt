@@ -1,0 +1,3 @@
+# one proxy per line
+# http://127.0.0.1:7890
+# http://user:pass@host:port

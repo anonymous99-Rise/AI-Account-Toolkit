@@ -1,0 +1,6 @@
+DrissionPage==4.1.1.4
+curl_cffi==0.13.0
+camoufox[geoip]==0.5.4
+playwright==1.60.0
+requests==2.34.2
+psutil==7.2.2

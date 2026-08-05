@@ -1,0 +1,26 @@
+# Release Checklist
+
+- [ ] Working tree contains only intended release files.
+- [ ] `scripts/run_tests.sh` passes from a clean clone.
+- [ ] `python -m pip check` passes in the deployment virtual environment.
+- [ ] `python -m camoufox version` reports an installed browser engine.
+- [ ] The batch supervisor test restarts a simulated `_getChildFrames` driver crash and resumes only remaining slots.
+- [ ] Runtime-platform tests cover Linux auto-Xvfb/direct launch, macOS direct launch, Windows virtualenv layout, and process-group flags.
+- [ ] A Linux headless launch resolves `xvfb-run`; a Linux graphical session and macOS do not add the wrapper.
+- [ ] Container deployments retain a readable procfs mount at `/proc`; missing process-table access fails closed with an actionable error.
+- [ ] `config.json`, all `proxies*.txt` / `stickies*.txt`, `accounts/`, auth directories, and `log/` are owner-only.
+- [ ] `log/proxy_pool.json` is `0600`; proxy API and rendered HTML never expose stored userinfo.
+- [ ] Email provider save/test APIs require `MONITOR_TOKEN`; API Key, JWT, and password values never appear in GET responses or rendered HTML.
+- [ ] Blank email-provider secret inputs preserve stored values, explicit clear removes them, and connectivity tests do not mutate `config.json`.
+- [ ] Email provider selection, save, test, secret-clear, and error states were exercised for all six supported providers.
+- [ ] `log/email_domain_pool.json` is `0600`; domain pool rules and rejection state are owner-only.
+- [ ] `MONITOR_TOKEN` is set and anonymous operational API requests return 401.
+- [ ] `PANEL_INCLUDE_TAIL=0` in the production environment.
+- [ ] The monitor binds to the intended loopback, LAN, or Tailscale address only.
+- [ ] Blacklist state was migrated before replacing legacy source files.
+- [ ] Pending SSO counts and recovery controls were checked without starting a job.
+- [ ] Desktop and mobile screenshots were reviewed in light and dark themes.
+- [ ] The systemd service restarts cleanly and survives a service restart.
+- [ ] No registration or recovery job is active during code synchronization.
+- [ ] Geist font files ship with `LICENSES/OFL-1.1-Geist.txt`.
+- [ ] Secret scanning reports no committed runtime credentials.

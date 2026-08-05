@@ -1,0 +1,16 @@
+This project includes modifications derived from:
+
+  AaronL725/grok-register
+  https://github.com/AaronL725/grok-register
+
+Original work Copyright (c) 2026 AaronL725 (MIT License).
+
+Additional panel, orchestration, redaction, and operational tooling by
+grok-register-panel contributors.
+
+See LICENSE for the full MIT text. The original copyright notice is retained
+as required by the upstream MIT license.
+
+The bundled Geist and Geist Mono font files are Copyright 2024 The Geist
+Project Authors and are distributed under the SIL Open Font License 1.1.
+See LICENSES/OFL-1.1-Geist.txt.

@@ -1,0 +1,21 @@
+[Unit]
+Description=Grok Register Panel
+After=network-online.target tailscaled.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=grok-register
+Group=grok-register
+WorkingDirectory=/opt/grok-register-panel
+EnvironmentFile=/etc/grok-register-panel.env
+UMask=0077
+ExecStartPre=/opt/grok-register-panel/.venv/bin/python /opt/grok-register-panel/scripts/harden_runtime_permissions.py /opt/grok-register-panel
+ExecStart=/opt/grok-register-panel/.venv/bin/python -u /opt/grok-register-panel/webui/monitor.py
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=15
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
