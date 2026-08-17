@@ -1,0 +1,126 @@
+{
+  "root": {
+    "CPAtools": {
+      "emoji": "📂",
+      "desc": "Codex 账号状态管理与自动清理"
+    },
+    "grokRegister-cpa": {
+      "emoji": "📂",
+      "desc": "Grok 批量注册 → OAuth → CPA 入库 (GUI + CLI)"
+    },
+    "GPT-team": {
+      "emoji": "📂",
+      "desc": "ChatGPT Team 协议注册机 (CF 邮箱版)"
+    },
+    "team": {
+      "emoji": "📂",
+      "desc": "ChatGPT Team 纯协议注册机 (支持续签)"
+    },
+    "team_all-in-one": {
+      "emoji": "📂",
+      "desc": "Team 注册一站式管理后台"
+    },
+    "codex-oauth-automation": {
+      "emoji": "📂",
+      "desc": "Codex OAuth 自动化 Chrome 插件"
+    },
+    "codex-oauth-automation-extension": {
+      "emoji": "📂",
+      "desc": "Codex OAuth 自动化浏览器插件"
+    },
+    "Extensions": {
+      "emoji": "📂",
+      "desc": "浏览器自动化增强插件集"
+    },
+    "freemail": {
+      "emoji": "📂",
+      "desc": "临时邮箱服务端 (Cloudflare Workers)"
+    },
+    "openai_pool_orchestrator_v5": {
+      "emoji": "📂",
+      "desc": "OpenAI 账号池编排器"
+    },
+    "openai_pool_orchestrator-V6": {
+      "emoji": "📂",
+      "desc": "OpenAI 账号池编排器 (旗舰版)"
+    },
+    "ClashVerge_": {
+      "emoji": "📂",
+      "desc": "代理负载均衡与轮询配置"
+    },
+    "gpt-outlook-register": {
+      "emoji": "📂",
+      "desc": "Outlook 版 ChatGPT 账号自动注册"
+    },
+    "Register_GPT_v0": {
+      "emoji": "📂",
+      "desc": "ChatGPT 注册工具 v0"
+    },
+    "mailhub": {
+      "emoji": "📂",
+      "desc": "邮箱服务集线器"
+    },
+    "merge-mailtm-share": {
+      "emoji": "📂",
+      "desc": "Mail.tm 账户合并与分享工具"
+    },
+    "ob12api": {
+      "emoji": "📂",
+      "desc": "OB12 API 服务"
+    },
+    "chatgpt_register_duckmail": {
+      "emoji": "📂",
+      "desc": "ChatGPT + DuckMail 注册方案"
+    },
+    "FreeSMS": {
+      "emoji": "📂",
+      "desc": "免费短信接收服务"
+    }
+  },
+  "packages": {
+    "openai": {
+      "emoji": "🤖",
+      "desc": "核心注册与 API 兼容层"
+    },
+    "claude": {
+      "emoji": "⚔️",
+      "desc": "Key 轮换与负载均衡"
+    },
+    "gemini": {
+      "emoji": "💎",
+      "desc": "余额查询与 DO 代理"
+    },
+    "codex": {
+      "emoji": "📜",
+      "desc": "协议注册与 LB"
+    },
+    "cursor": {
+      "emoji": "🖱️",
+      "desc": "账号自动注册"
+    },
+    "grok": {
+      "emoji": "🐦",
+      "desc": "x.ai 批量注册与转换"
+    },
+    "nvidia": {
+      "emoji": "🔱",
+      "desc": "NVIDIA 账号注册与 API"
+    },
+    "email": {
+      "emoji": "📧",
+      "desc": "临时邮箱与 OAuth 提码"
+    },
+    "general": {
+      "emoji": "🛠️",
+      "desc": "逆向聚合与通用工具"
+    }
+  },
+  "破限工具": {
+    "Claude code": {
+      "desc": "Claude Code 破限工具"
+    },
+    "codex": {
+      "desc": "Codex 破限工具"
+    }
+  }
+}

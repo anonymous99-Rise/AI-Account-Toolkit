@@ -7,6 +7,7 @@ on:
     paths:
       - 'packages/**'
       - '.gitmodules'
+      - 'docs/**'
       - '*'
       - '*/'
   workflow_dispatch:
@@ -31,118 +32,176 @@ jobs:
       - name: Generate project structure
         id: structure
         run: |
-          # 扫描所有子模块 (从 .gitmodules)
-          declare -A submodule_map
-          while IFS= read -r line; do
-            if [[ "$line" =~ submodule\.\"(.*)\".*path=\"(.*)\" ]]; then
-              path="${BASH_REMATCH[2]}"
-              category=$(echo "$path" | cut -d'/' -f2)
-              name=$(echo "$path" | cut -d'/' -f3-)
-              submodule_map["$category"]+=" $name"
-            fi
-          done < <(git config --list --file .gitmodules)
+          python3 << 'PYTHON_SCRIPT'
+          import json
+          import os
+          import re
 
-          # 定义分类映射
-          declare -A category_info
-          category_info[openai]="🤖 openai"
-          category_info[claude]="⚔️ claude"
-          category_info[gemini]="💎 gemini"
-          category_info[codex]="📜 codex"
-          category_info[cursor]="🖱️ cursor"
-          category_info[grok]="🐦 grok"
-          category_info[nvidia]="🔱 nvidia"
-          category_info[email]="📧 email"
-          category_info[general]="🛠️ general"
+          # 读取映射文件
+          with open('docs/dir-mappings.json', 'r', encoding='utf-8') as f:
+              mappings = json.load(f)
 
-          # 收集 packages 下的子模块
-          packages_lines=""
-          for category in openai claude gemini codex cursor grok nvidia email general; do
-            info="${category_info[$category]}"
-            emoji=$(echo "$info" | awk '{print $1}')
-            label=$(echo "$info" | awk '{print $2}')
-            if [[ -n "${submodule_map[$category]}" ]]; then
-              packages_lines+="    ├── $emoji $label/\n"
-            fi
-          done
+          root_map = mappings.get('root', {})
+          packages_map = mappings.get('packages', {})
+          chinese_map = mappings.get('破限工具', {})
 
-          # 扫描中文目录
-          if [[ -d "packages/破限工具" ]]; then
-            items=$(ls -d packages/破限工具/*/ 2>/dev/null | xargs -n1 basename | tr '\n' ' ')
-            if [[ -n "$items" ]]; then
-              packages_lines+="    └── 🛠️ 破限工具/             # 破限工具集合\n"
-            fi
-          fi
+          # 扫描 packages 下的子模块
+          submodule_cats = set()
+          if os.path.exists('.gitmodules'):
+              with open('.gitmodules', 'r', encoding='utf-8') as f:
+                  for line in f:
+                      if 'path = packages/' in line:
+                          parts = line.strip().split('path = packages/')
+                          if len(parts) > 1:
+                              cat = parts[1].split('/')[0]
+                              submodule_cats.add(cat)
 
-          # 扫描根目录非 git/子模块目录 (排除隐藏目录和特定文件)
-          root_dirs=$(find . -maxdepth 1 -type d ! -name '.*' ! -name '.git' ! -name 'node_modules' ! -name 'packages' 2>/dev/null | sed 's|^\./||' | sort)
+          # 生成根目录结构行
+          root_dirs = []
+          for d in sorted(os.listdir('.')):
+              if os.path.isdir(d) and not d.startswith('.') and d not in ('node_modules', 'packages'):
+                  info = root_map.get(d, {})
+                  emoji = info.get('emoji', '📂')
+                  desc = info.get('desc', '')
+                  root_dirs.append((d, emoji, desc))
 
-          echo "packages_lines<<EOF" >> $GITHUB_OUTPUT
-          echo -e "$packages_lines" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
-          echo "root_dirs<<EOF" >> $GITHUB_OUTPUT
-          echo "$root_dirs" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
-      - name: Update README structure
-        run: |
           # 生成 packages 结构行
-          packages_str=""
-          while IFS= read -r line; do
-            packages_str+="$line\n"
-          done <<< "${{ steps.structure.outputs.packages_lines }}"
+          packages_lines = []
+          pkg_cats = ['openai', 'claude', 'gemini', 'codex', 'cursor', 'grok', 'nvidia', 'email', 'general']
+          for cat in pkg_cats:
+              if cat in submodule_cats or os.path.exists(f'packages/{cat}'):
+                  info = packages_map.get(cat, {})
+                  emoji = info.get('emoji', '📂')
+                  label = cat
+                  packages_lines.append((emoji, label, True))  # True = not last
 
-          # 生成根目录行
-          root_str=""
-          while IFS= read -r dir; do
-            case "$dir" in
-              CPAtools)         desc="Codex 账号状态管理与自动清理" ;;
-              grokRegister-cpa) desc="Grok 批量注册 → OAuth → CPA 入库 (GUI + CLI)" ;;
-              GPT-team)         desc="ChatGPT Team 协议注册机 (CF 邮箱版)" ;;
-              team)             desc="ChatGPT Team 纯协议注册机 (支持续签)" ;;
-              team_all-in-one)  desc="Team 注册一站式管理后台" ;;
-              codex-oauth-automation*) desc="Codex OAuth 自动化 Chrome 插件" ;;
-              Extensions)       desc="浏览器自动化增强插件集" ;;
-              freemail)         desc="临时邮箱服务端 (Cloudflare Workers)" ;;
-              openai_pool*)     desc="OpenAI 账号池编排器 (旗舰版)" ;;
-              ClashVerge_)      desc="代理负载均衡与轮询配置" ;;
-              grok)             desc="Grok 独立工具" ;;
-              packages)         desc="模块化子模块 (Submodules)" ;;
-              *)                desc="" ;;
-            esac
-            # 截断描述到指定长度
-            if [[ -n "$desc" ]]; then
-              printf "├── 📂 %-24s # %s\n" "$dir" "$desc"
-            fi
-          done <<< "${{ steps.structure.outputs.root_dirs }}" > root_dirs.txt
+          # 中文目录（破限工具）
+          chinese_dir = 'packages/破限工具'
+          if os.path.exists(chinese_dir):
+              items = []
+              if os.path.exists(chinese_dir):
+                  for subd in os.listdir(chinese_dir):
+                      subpath = os.path.join(chinese_dir, subd)
+                      if os.path.isdir(subpath):
+                          info = chinese_map.get(subd, {})
+                          desc = info.get('desc', subd)
+                          items.append((subd, desc))
+              packages_lines.append(('🛠️', '破限工具', False, items))  # False = is last
 
-          # awk 替换 README.md 中的项目结构部分
+          # 输出 GitHub Actions 输出
+          with open('structure_output.txt', 'w', encoding='utf-8') as f:
+              # 根目录
+              for d, emoji, desc in root_dirs:
+                  f.write(f"ROOT|{d}|{emoji}|{desc}\n")
+              # packages 分隔
+              f.write("---\n")
+              # packages 子目录
+              for item in packages_lines:
+                  if len(item) == 3:
+                      emoji, label, not_last = item
+                      f.write(f"PKG|{label}|{emoji}|{'/yn' if not_last else '/yn'}|NO_CHILDREN\n")
+                  else:
+                      emoji, label, not_last, children = item
+                      f.write(f"PKG|{label}|{emoji}|{'/yn' if not_last else '/yn'}|HAS_CHILDREN\n")
+                      for child_name, child_desc in children:
+                          f.write(f"CHILD|{child_name}|{child_desc}\n")
+
+          print("Structure generated successfully")
+          PYTHON_SCRIPT
+
+      - name: Generate README content
+        run: |
+          # 解析结构输出并生成 README 片段
+          python3 << 'PYTHON_SCRIPT'
+          import os
+
+          with open('structure_output.txt', 'r', encoding='utf-8') as f:
+              lines = f.readlines()
+
+          root_entries = []
+          pkg_entries = []
+          child_entries = {}
+          current_pkg = None
+          in_package_section = False
+
+          for line in lines:
+              line = line.strip()
+              if line == '---':
+                  in_package_section = True
+                  continue
+              parts = line.split('|')
+              if parts[0] == 'ROOT':
+                  _, name, emoji, desc = parts
+                  root_entries.append((name, emoji, desc))
+              elif parts[0] == 'PKG':
+                  _, name, emoji, not_last, has_children = parts
+                  pkg_entries.append((name, emoji, not_last == '/yn', has_children == 'HAS_CHILDREN'))
+                  current_pkg = name
+              elif parts[0] == 'CHILD':
+                  _, name, desc = parts
+                  if current_pkg not in child_entries:
+                      child_entries[current_pkg] = []
+                  child_entries[current_pkg].append((name, desc))
+
+          # 生成新的项目结构
+          output = []
+          output.append("AI-Account-Toolkit/")
+
+          # 根目录（固定顺序）
+          fixed_order = ['CPAtools', 'grokRegister-cpa', 'GPT-team', 'team', 'team_all-in-one',
+                         'codex-oauth-automation', 'codex-oauth-automation-extension', 'Extensions',
+                         'freemail', 'openai_pool_orchestrator_v5', 'openai_pool_orchestrator-V6',
+                         'ClashVerge_', 'gpt-outlook-register', 'Register_GPT_v0', 'mailhub',
+                         'merge-mailtm-share', 'ob12api', 'chatgpt_register_duckmail', 'FreeSMS']
+
+          name_to_info = {name: (emoji, desc) for name, emoji, desc in root_entries}
+          for name in fixed_order:
+              if name in name_to_info:
+                  emoji, desc = name_to_info[name]
+                  output.append(f"├── {emoji} {name}/                # {desc}")
+
+          output.append("└── 📂 packages/                # 模块化子模块 (Submodules)")
+
+          # packages 子目录
+          pkg_order = ['openai', 'claude', 'gemini', 'codex', 'cursor', 'grok', 'nvidia', 'email', 'general']
+          name_to_pkg = {name: (emoji, has_children) for name, emoji, not_last, has_children in pkg_entries}
+
+          last_idx = len([n for n in pkg_order if n in name_to_pkg]) - 1
+          for i, name in enumerate(pkg_order):
+              if name not in name_to_pkg:
+                  continue
+              emoji, has_children = name_to_pkg[name]
+              prefix = "    ├──" if i < last_idx else "    └──"
+              output.append(f"{prefix} {emoji} {name}/              # 核心注册与 API 兼容层")
+
+          # 破限工具
+          if '破限工具' in [n for n, e, nl, hc in pkg_entries]:
+              children = child_entries.get('破限工具', [])
+          else:
+              children = []
+
+          if children:
+              output.append("    │   └── 🛠️ 破限工具/             # 破限工具集合")
+              for j, (child_name, child_desc) in enumerate(children):
+                  prefix = "    │       ├──" if j < len(children) - 1 else "    │       └──"
+                  output.append(f"{prefix} 📂 {child_name}/  # {child_desc}")
+
+          # 写入临时文件
+          with open('new_structure.txt', 'w', encoding='utf-8') as f:
+              f.write('\n'.join(output))
+
+          print("README content generated")
+          PYTHON_SCRIPT
+
+      - name: Update README
+        run: |
           awk '
             /^```text$/ && !started {
               started=1
               print
-              print "AI-Account-Toolkit/"
-              print "├── 📂 CPAtools/                # Codex 账号状态管理与自动清理"
-              print "├── 📂 grokRegister-cpa/        # Grok 批量注册 → OAuth → CPA 入库 (GUI + CLI)"
-              print "├── 📂 GPT-team/                # ChatGPT Team 协议注册机 (CF 邮箱版)"
-              print "├── 📂 team/                    # ChatGPT Team 纯协议注册机 (支持续签)"
-              print "├── 📂 team_all-in-one/         # Team 注册一站式管理后台"
-              print "├── 📂 codex-oauth-automation/  # Codex OAuth 自动化 Chrome 插件"
-              print "├── 📂 Extensions/              # 浏览器自动化增强插件集"
-              print "├── 📂 freemail/                # 临时邮箱服务端 (Cloudflare Workers)"
-              print "├── 📂 openai_pool_v6/          # OpenAI 账号池编排器 (旗舰版)"
-              print "├── 📂 ClashVerge_/             # 代理负载均衡与轮询配置"
-              print "└── 📂 packages/                # 模块化子模块 (Submodules)"
-              print "    ├── 🤖 openai/              # 核心注册与 API 兼容层"
-              print "    ├── ⚔️ claude/               # Key 轮换与负载均衡"
-              print "    ├── 💎 gemini/               # 余额查询与 DO 代理"
-              print "    ├── 📜 codex/                # 协议注册与 LB"
-              print "    ├── 🖱️ cursor/               # 账号自动注册"
-              print "    ├── 🐦 grok/                 # x.ai 批量注册与转换"
-              print "    ├── 🔱 nvidia/               # NVIDIA 账号注册与 API"
-              print "    ├── 📧 email/                # 临时邮箱与 OAuth 提码"
-              print "    ├── 🛠️ general/              # 逆向聚合与通用工具"
-              print "    └── 🛠️ 破限工具/             # 破限工具集合"
+              while ((getline line < "new_structure.txt") > 0) {
+                  print line
+              }
               skip=1
               next
             }
