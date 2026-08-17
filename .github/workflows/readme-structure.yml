@@ -7,6 +7,8 @@ on:
     paths:
       - 'packages/**'
       - '.gitmodules'
+      - '*'
+      - '*/'
   workflow_dispatch:
 
 permissions:
@@ -19,66 +21,105 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: Configure Git
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Generate structure
-        id: generate
+      - name: Generate project structure
+        id: structure
         run: |
-          # 从 .gitmodules 解析 submodule 路径和分类
-          declare -A submodules
-          while IFS='=' read -r key value; do
-            case "$key" in
-              *path*)
-                current_path="$value"
-                ;;
-              *url*)
-                # 从 path 提取分类和名称
-                if [[ -n "$current_path" ]]; then
-                  category=$(echo "$current_path" | cut -d'/' -f2)
-                  name=$(echo "$current_path" | cut -d'/' -f3-)
-                  submodules["$category"]+="  - $name\n"
-                fi
-                ;;
-            esac
-          done < <(git config --get-regexp submodule | tr ' ' '\n')
+          # 扫描所有子模块 (从 .gitmodules)
+          declare -A submodule_map
+          while IFS= read -r line; do
+            if [[ "$line" =~ submodule\.\"(.*)\".*path=\"(.*)\" ]]; then
+              path="${BASH_REMATCH[2]}"
+              category=$(echo "$path" | cut -d'/' -f2)
+              name=$(echo "$path" | cut -d'/' -f3-)
+              submodule_map["$category"]+=" $name"
+            fi
+          done < <(git config --list --file .gitmodules)
 
-          # 生成新的 packages 结构
-          packages_structure=""
+          # 定义分类映射
+          declare -A category_info
+          category_info[openai]="🤖 openai"
+          category_info[claude]="⚔️ claude"
+          category_info[gemini]="💎 gemini"
+          category_info[codex]="📜 codex"
+          category_info[cursor]="🖱️ cursor"
+          category_info[grok]="🐦 grok"
+          category_info[nvidia]="🔱 nvidia"
+          category_info[email]="📧 email"
+          category_info[general]="🛠️ general"
+
+          # 收集 packages 下的子模块
+          packages_lines=""
           for category in openai claude gemini codex cursor grok nvidia email general; do
-            case $category in
-              openai)   emoji="🤖" label="openai" ;;
-              claude)   emoji="⚔️"  label="claude" ;;
-              gemini)   emoji="💎"  label="gemini" ;;
-              codex)    emoji="📜"  label="codex" ;;
-              cursor)   emoji="🖱️"  label="cursor" ;;
-              grok)     emoji="🐦"  label="grok" ;;
-              nvidia)   emoji="🔱"  label="nvidia" ;;
-              email)    emoji="📧"  label="email" ;;
-              general)  emoji="🛠️"  label="general" ;;
-            esac
-            if [[ -n "${submodules[$category]}" ]]; then
-              packages_structure+="    ├── $emoji $label/\n"
+            info="${category_info[$category]}"
+            emoji=$(echo "$info" | awk '{print $1}')
+            label=$(echo "$info" | awk '{print $2}')
+            if [[ -n "${submodule_map[$category]}" ]]; then
+              packages_lines+="    ├── $emoji $label/\n"
             fi
           done
 
-          # 处理中文目录（破限工具）
+          # 扫描中文目录
           if [[ -d "packages/破限工具" ]]; then
-            items=$(ls -d packages/破限工具/*/ 2>/dev/null | xargs -n1 basename | sed 's/^/    │   /')
-            packages_structure+="    ├── 🛠️ 破限工具/\n"
+            items=$(ls -d packages/破限工具/*/ 2>/dev/null | xargs -n1 basename | tr '\n' ' ')
+            if [[ -n "$items" ]]; then
+              packages_lines+="    └── 🛠️ 破限工具/             # 破限工具集合\n"
+            fi
           fi
 
-          echo "packages_structure=$packages_structure" >> $GITHUB_OUTPUT
+          # 扫描根目录非 git/子模块目录 (排除隐藏目录和特定文件)
+          root_dirs=$(find . -maxdepth 1 -type d ! -name '.*' ! -name '.git' ! -name 'node_modules' ! -name 'packages' 2>/dev/null | sed 's|^\./||' | sort)
 
-      - name: Update README
+          echo "packages_lines<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$packages_lines" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+          echo "root_dirs<<EOF" >> $GITHUB_OUTPUT
+          echo "$root_dirs" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Update README structure
         run: |
-          # 用 awk 替换项目结构部分
+          # 生成 packages 结构行
+          packages_str=""
+          while IFS= read -r line; do
+            packages_str+="$line\n"
+          done <<< "${{ steps.structure.outputs.packages_lines }}"
+
+          # 生成根目录行
+          root_str=""
+          while IFS= read -r dir; do
+            case "$dir" in
+              CPAtools)         desc="Codex 账号状态管理与自动清理" ;;
+              grokRegister-cpa) desc="Grok 批量注册 → OAuth → CPA 入库 (GUI + CLI)" ;;
+              GPT-team)         desc="ChatGPT Team 协议注册机 (CF 邮箱版)" ;;
+              team)             desc="ChatGPT Team 纯协议注册机 (支持续签)" ;;
+              team_all-in-one)  desc="Team 注册一站式管理后台" ;;
+              codex-oauth-automation*) desc="Codex OAuth 自动化 Chrome 插件" ;;
+              Extensions)       desc="浏览器自动化增强插件集" ;;
+              freemail)         desc="临时邮箱服务端 (Cloudflare Workers)" ;;
+              openai_pool*)     desc="OpenAI 账号池编排器 (旗舰版)" ;;
+              ClashVerge_)      desc="代理负载均衡与轮询配置" ;;
+              grok)             desc="Grok 独立工具" ;;
+              packages)         desc="模块化子模块 (Submodules)" ;;
+              *)                desc="" ;;
+            esac
+            # 截断描述到指定长度
+            if [[ -n "$desc" ]]; then
+              printf "├── 📂 %-24s # %s\n" "$dir" "$desc"
+            fi
+          done <<< "${{ steps.structure.outputs.root_dirs }}" > root_dirs.txt
+
+          # awk 替换 README.md 中的项目结构部分
           awk '
-            /^```text$/ && !found {
+            /^```text$/ && !started {
+              started=1
               print
               print "AI-Account-Toolkit/"
               print "├── 📂 CPAtools/                # Codex 账号状态管理与自动清理"
@@ -102,13 +143,10 @@ jobs:
               print "    ├── 📧 email/                # 临时邮箱与 OAuth 提码"
               print "    ├── 🛠️ general/              # 逆向聚合与通用工具"
               print "    └── 🛠️ 破限工具/             # 破限工具集合"
-
-              # 跳过旧的 packages 结构直到遇到空的 --- 分隔行或下一个 ### 标题
-              skip=0
+              skip=1
               next
             }
-            skip && /^---$/ { skip=0; next }
-            skip && /^\#\#\# [📦🧭]/ { skip=0 }
+            skip && /^```$/ { skip=0 }
             skip { next }
             { print }
           ' README.md > README.md.new && mv README.md.new README.md
@@ -116,7 +154,7 @@ jobs:
       - name: Commit and push
         run: |
           if git diff --quiet README.md; then
-            echo "No changes to README"
+            echo "No README changes needed"
           else
             git add README.md
             git commit -m "chore: auto-update README structure [skip ci]"
