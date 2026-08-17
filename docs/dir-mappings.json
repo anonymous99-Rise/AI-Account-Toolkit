@@ -121,6 +121,9 @@
     },
     "codex": {
       "desc": "Codex 破限工具"
+    },
+    "grok": {
+      "desc": "Grok 破限工具"
     }
   }
 }

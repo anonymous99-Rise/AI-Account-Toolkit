@@ -118,3 +118,6 @@
 [submodule "packages/破限工具/codex"]
 	path = packages/破限工具/codex
 	url = https://github.com/Jia-Ethan/codex-keysmith.git
+[submodule "packages/破限工具/grok"]
+	path = packages/破限工具/grok
+	url = https://github.com/Jia-Ethan/grok-keysmith.git
