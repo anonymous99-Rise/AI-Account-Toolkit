@@ -36,25 +36,36 @@
 ```text
 AI-Account-Toolkit/
 ├── 📂 CPAtools/                # Codex 账号状态管理与自动清理
-├── 📂 grokRegister-cpa/        # Grok 批量注册 → OAuth → CPA 入库 (GUI + CLI)
+├── 📂 grokRegister-cpa/                # Grok 批量注册 → OAuth → CPA 入库 (GUI + CLI)
 ├── 📂 GPT-team/                # ChatGPT Team 协议注册机 (CF 邮箱版)
-├── 📂 team/                    # ChatGPT Team 纯协议注册机 (支持续签)
-├── 📂 team_all-in-one/         # Team 注册一站式管理后台
-├── 📂 codex-oauth-automation/  # Codex OAuth 自动化 Chrome 插件
-├── 📂 Extensions/              # 浏览器自动化增强插件集
+├── 📂 team/                # ChatGPT Team 纯协议注册机 (支持续签)
+├── 📂 team_all-in-one/                # Team 注册一站式管理后台
+├── 📂 codex-oauth-automation-extension/                # Codex OAuth 自动化浏览器插件
+├── 📂 Extensions/                # 浏览器自动化增强插件集
 ├── 📂 freemail/                # 临时邮箱服务端 (Cloudflare Workers)
-├── 📂 openai_pool_v6/          # OpenAI 账号池编排器 (旗舰版)
-├── 📂 ClashVerge_/             # 代理负载均衡与轮询配置
+├── 📂 openai_pool_orchestrator_v5/                # OpenAI 账号池编排器
+├── 📂 openai_pool_orchestrator-V6/                # OpenAI 账号池编排器 (旗舰版)
+├── 📂 ClashVerge_/                # 代理负载均衡与轮询配置
+├── 📂 gpt-outlook-register/                # Outlook 版 ChatGPT 账号自动注册
+├── 📂 Register_GPT_v0/                # ChatGPT 注册工具 v0
+├── 📂 mailhub/                # 邮箱服务集线器
+├── 📂 merge-mailtm-share/                # Mail.tm 账户合并与分享工具
+├── 📂 ob12api/                # OB12 API 服务
+├── 📂 chatgpt_register_duckmail/                # ChatGPT + DuckMail 注册方案
+├── 📂 FreeSMS/                # 免费短信接收服务
 └── 📂 packages/                # 模块化子模块 (Submodules)
     ├── 🤖 openai/              # 核心注册与 API 兼容层
-    ├── ⚔️ claude/               # Key 轮换与负载均衡
-    ├── 💎 gemini/               # 余额查询与 DO 代理
-    ├── 📜 codex/                # 协议注册与 LB
-    ├── 🖱️ cursor/               # 账号自动注册
-    ├── 🐦 grok/                 # x.ai 批量注册与转换
-    ├── 🔱 nvidia/               # NVIDIA 账号注册与 API
-    ├── 📧 email/                # 临时邮箱与 OAuth 提码
-    └── 🛠️ general/              # 逆向聚合与通用工具
+    ├── ⚔️ claude/              # 核心注册与 API 兼容层
+    ├── 💎 gemini/              # 核心注册与 API 兼容层
+    ├── 📜 codex/              # 核心注册与 API 兼容层
+    ├── 🖱️ cursor/              # 核心注册与 API 兼容层
+    ├── 🐦 grok/              # 核心注册与 API 兼容层
+    ├── 🔱 nvidia/              # 核心注册与 API 兼容层
+    ├── 📧 email/              # 核心注册与 API 兼容层
+    └── 🛠️ general/              # 核心注册与 API 兼容层
+    │   └── 🛠️ 破限工具/             # 破限工具集合
+    │       ├── 📂 codex/  # Codex 破限工具
+    │       └── 📂 Claude code/  # Claude Code 破限工具
 ```
 
 ---
