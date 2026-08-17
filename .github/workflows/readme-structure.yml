@@ -217,5 +217,5 @@ jobs:
           else
             git add README.md
             git commit -m "chore: auto-update README structure [skip ci]"
-            git push
+            git pull --rebase && git push
           fi
