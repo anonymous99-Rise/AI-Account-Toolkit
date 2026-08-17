@@ -154,6 +154,13 @@ AI-Account-Toolkit/
 | :--- | :--- |
 | **[nvidia-register](packages/nvidia/nvidia-register/README.md)** | 半自动注册 NVIDIA BUILD 账号并自动创建 AI_PLAYGROUNDS_KEY。 |
 
+### 🛠️ 破限工具 (packages/破限工具)
+
+| 项目 | 描述 |
+| :--- | :--- |
+| **Claude code** | Claude Code 破限工具。 |
+| **codex** | Codex 破限工具。 |
+
 ---
 
 ## 🚀 快速开始
@@ -217,7 +224,7 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 
 ---
 
-## 📋 子模块列表 (共 36 个)
+## 📋 子模块列表 (共 38 个)
 
 | 分类 | 路径 | 核心功能 |
 | :--- | :--- | :--- |

@@ -112,3 +112,9 @@
 [submodule "packages/general/reg-factory"]
 	path = packages/general/reg-factory
 	url = https://github.com/tiantianGPU/reg-factory.git
+[submodule "packages/破限工具/Claude code"]
+	path = packages/破限工具/Claude code
+	url = https://github.com/Jia-Ethan/claude-keysmith.git
+[submodule "packages/破限工具/codex"]
+	path = packages/破限工具/codex
+	url = https://github.com/Jia-Ethan/codex-keysmith.git
