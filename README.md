@@ -65,7 +65,8 @@ AI-Account-Toolkit/
     └── 🛠️ general/              # 核心注册与 API 兼容层
     │   └── 🛠️ 破限工具/             # 破限工具集合
     │       ├── 📂 codex/  # Codex 破限工具
-    │       └── 📂 Claude code/  # Claude Code 破限工具
+    │       ├── 📂 Claude code/  # Claude Code 破限工具
+    │       └── 📂 grok/  # Grok 破限工具
 ```
 
 ---
