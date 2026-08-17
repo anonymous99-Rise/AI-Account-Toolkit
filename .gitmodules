@@ -109,3 +109,6 @@
 [submodule "packages/grok/grok2api-egress-enhancements"]
 	path = packages/grok/grok2api-egress-enhancements
 	url = https://github.com/TreasureBoy520/grok2api-egress-enhancements.git
+[submodule "packages/general/reg-factory"]
+	path = packages/general/reg-factory
+	url = https://github.com/tiantianGPU/reg-factory.git
