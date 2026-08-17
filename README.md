@@ -93,6 +93,7 @@ AI-Account-Toolkit/
 | **[cockpit-tools](packages/general/cockpit-tools/README.md)** | OpenAI Cockpit 管理工具集。 |
 | **[any-auto-register](packages/general/any-auto-register/README.md)** | 模块化账号注册框架，支持多平台扩展。 |
 | **[all-in-one-register](packages/general/all-in-one-register/README.md)** | 集成 OpenAI/Grok/Tavily 的综合自动化注册机。 |
+| **[reg-factory](packages/general/reg-factory/README.md)** | 通用的批量账号注册工厂，支持多种平台。 |
 | **[exa-free](packages/general/exa-free/README.md)** | Exa 搜索引擎免费 API 服务。 |
 | **[api-key-scraper](packages/general/api-key-scraper/README.md)** | 多平台 API Key 批量获取工具。 |
 | **[mregister](packages/general/mregister/README.md)** | 多平台注册管理器。 |
@@ -216,7 +217,7 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 
 ---
 
-## 📋 子模块列表 (共 35 个)
+## 📋 子模块列表 (共 36 个)
 
 | 分类 | 路径 | 核心功能 |
 | :--- | :--- | :--- |
