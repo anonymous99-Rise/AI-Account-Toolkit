@@ -21,8 +21,14 @@ jobs:
 
           # 清理 .git/config 里残留的幽灵 submodule（.gitmodules 里已不存在的条目）
           # 从 .gitmodules 提取所有合法 submodule 名称，然后从 .git/config 删掉不匹配的那些
-          mapfile -t valid_names < <(git config --file .gitmodules --get-regexp '\.path$' | awk '{print $1}' | sed 's/^submodule\.//' | sed 's/\.path$//')
-          for cfg_key in $(git config --get-regexp '^submodule\.' | awk '{print $1}'); do
+          valid_names=()
+          while IFS= read -r path_key; do
+            sm_name="${path_key#submodule.}"
+            sm_name="${sm_name%.path}"
+            valid_names+=("$sm_name")
+          done < <(git config --file .gitmodules --name-only --get-regexp '\.path$')
+
+          while IFS= read -r cfg_key; do
             sm_name="${cfg_key%.url}"
             sm_name="${sm_name#submodule.}"
             is_valid=false
@@ -36,10 +42,13 @@ jobs:
               echo "Removing orphaned submodule config: $sm_name"
               git config --remove-section "submodule.$sm_name" 2>/dev/null || true
             fi
-          done
+          done < <(git config --name-only --get-regexp '^submodule\.')
 
           # 重新获取清理后的 submodule 列表
-          mapfile -t sm_paths < <(git config --file .gitmodules --get-regexp '\.path$' | awk '{print $2}')
+          sm_paths=()
+          while IFS= read -r path_key; do
+            sm_paths+=("$(git config --file .gitmodules --get "$path_key")")
+          done < <(git config --file .gitmodules --name-only --get-regexp '\.path$')
 
           echo "### Submodule Sync Report" >> $GITHUB_STEP_SUMMARY
           echo "| Submodule | Status | Action |" >> $GITHUB_STEP_SUMMARY
