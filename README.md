@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="License: MIT"></a>
-  <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/releases"><img src="https://img.shields.io/badge/Version-2.11.4-orange.svg?style=flat-square" alt="Version"></a>
+  <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/releases"><img src="https://img.shields.io/badge/Version-2.11.5-orange.svg?style=flat-square" alt="Version"></a>
   <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/stargazers"><img src="https://img.shields.io/github/stars/anonymous99-Rise/AI-Account-Toolkit?style=flat-square&color=gold" alt="GitHub stars"></a>
   <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/commits/main"><img src="https://img.shields.io/github/last-commit/anonymous99-Rise/AI-Account-Toolkit?style=flat-square" alt="GitHub last commit"></a>
 </p>
