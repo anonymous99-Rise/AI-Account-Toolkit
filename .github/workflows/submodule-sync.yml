@@ -17,12 +17,28 @@ jobs:
 
       - name: Update submodules
         run: |
-          # 先清理 .git/config 里残留的幽灵 submodule（.gitmodules 里已不存在的条目）
-          # 这样 git submodule init 就不会把它们注册进来
-          git config --remove-section submodule.code.path 2>/dev/null || true
-
           git submodule init
-          # 获取所有子模块路径（用 IFS 正确处理含空格的路径）
+
+          # 清理 .git/config 里残留的幽灵 submodule（.gitmodules 里已不存在的条目）
+          # 从 .gitmodules 提取所有合法 submodule 名称，然后从 .git/config 删掉不匹配的那些
+          mapfile -t valid_names < <(git config --file .gitmodules --get-regexp '\.path$' | awk '{print $1}' | sed 's/^submodule\.//' | sed 's/\.path$//')
+          for cfg_key in $(git config --get-regexp '^submodule\.' | awk '{print $1}'); do
+            sm_name="${cfg_key%.url}"
+            sm_name="${sm_name#submodule.}"
+            is_valid=false
+            for valid in "${valid_names[@]}"; do
+              if [ "$sm_name" = "$valid" ]; then
+                is_valid=true
+                break
+              fi
+            done
+            if [ "$is_valid" = false ]; then
+              echo "Removing orphaned submodule config: $sm_name"
+              git config --remove-section "submodule.$sm_name" 2>/dev/null || true
+            fi
+          done
+
+          # 重新获取清理后的 submodule 列表
           mapfile -t sm_paths < <(git config --file .gitmodules --get-regexp '\.path$' | awk '{print $2}')
 
           echo "### Submodule Sync Report" >> $GITHUB_STEP_SUMMARY
@@ -32,17 +48,14 @@ jobs:
           for sm in "${sm_paths[@]}"; do
             echo "--------------------------------------------------"
             echo "Checking submodule: $sm"
-            # 通过 git config 直接查 URL（shell 会正确处理含空格路径的引号）
             URL=$(git config --file .gitmodules --get "submodule.${sm}.url")
 
-            # 跳过 .gitmodules 里没有 URL 条目的 submodule（幽灵 submodule）
             if [ -z "$URL" ]; then
               echo "::warning:: Submodule $sm has no URL in .gitmodules — skipping (possibly orphaned)."
               echo "| $sm | ⚠️ ORPHAN | No URL in .gitmodules |" >> $GITHUB_STEP_SUMMARY
               continue
             fi
 
-            # 检查远程仓库是否存活
             if curl --output /dev/null --silent --head --fail -L "$URL"; then
               echo "Upstream $URL is healthy. Updating to latest commit..."
               if git submodule update --init --recursive --remote "$sm"; then
