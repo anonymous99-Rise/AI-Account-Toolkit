@@ -39,7 +39,7 @@
 	url = https://github.com/shjee-afridi/Ultimate-openai-gemini-claude-api-key-scraper.git
 [submodule "packages/cursor/cursor-auto-register"]
 	path = packages/cursor/cursor-auto-register
-	url = https://github.com/VictorKTO/cursor-auto-register.git
+	url = https://github.com/ddCat-main/cursor-auto-register.git
 [submodule "packages/grok/grok-register"]
 	path = packages/grok/grok-register
 	url = https://github.com/509992828/grok-register.git
@@ -60,10 +60,10 @@
 	url = https://github.com/satangel2222/grok2api.git
 [submodule "packages/general/gopay-plus-auto"]
 	path = packages/general/gopay-plus-auto
-	url = https://github.com/ywnd1144/Gopay_plus_automatic.git
+	url = https://github.com/zhoujunshao-coder/gopay-plus-auto.git
 [submodule "packages/general/all-in-one-register"]
 	path = packages/general/all-in-one-register
-	url = https://github.com/Always15dppk/register.git
+	url = https://github.com/lxf746/any-auto-register.git
 [submodule "packages/openai/chatgpt-auto-register"]
 	path = packages/openai/chatgpt-auto-register
 	url = https://github.com/xtitx0327/ChatGPT-Auto-Register.git
@@ -93,10 +93,10 @@
 	url = https://github.com/jlcodes99/cockpit-tools.git
 [submodule "packages/openai/gpt-trahatel"]
 	path = packages/openai/gpt-trahatel
-	url = https://github.com/gfhfyjbr/gpt-trahatel.git
+	url = https://github.com/Link-Start/gpt-trahatel_gfhfyjbr.git
 [submodule "packages/nvidia/nvidia-register"]
 	path = packages/nvidia/nvidia-register
-	url = https://github.com/anonymous99-Rise/nvidia-register.git
+	url = https://github.com/zseek/nvidia-register.git
 [submodule "packages/grok/grokcli-2api"]
 	path = packages/grok/grokcli-2api
 	url = https://github.com/HM2899/grokcli-2api.git
@@ -108,7 +108,7 @@
 	url = https://github.com/lij768423-svg/grok-register-panel.git
 [submodule "packages/grok/grok2api-egress-enhancements"]
 	path = packages/grok/grok2api-egress-enhancements
-	url = https://github.com/TreasureBoy520/grok2api-egress-enhancements.git
+	url = https://github.com/lij768423-svg/grok2api-egress-enhancements.git
 [submodule "packages/general/reg-factory"]
 	path = packages/general/reg-factory
 	url = https://github.com/tiantianGPU/reg-factory.git
