@@ -130,3 +130,6 @@
 [submodule "packages/破限工具/open-reverselab"]
 	path = packages/破限工具/open-reverselab
 	url = https://github.com/anonymous99-Rise/open-reverselab.git
+[submodule "packages/破限工具/dsh/dsh-purge"]
+	path = packages/破限工具/dsh/dsh-purge
+	url = https://github.com/YuJunZhiXue/dsh-purge.git

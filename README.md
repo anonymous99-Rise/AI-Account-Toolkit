@@ -69,7 +69,12 @@ AI-Account-Toolkit/
     │       ├── 📂 Claude code/  # Claude Code 破限工具
     │       ├── 📂 open-reverselab/  # open-reverselab
     │       ├── 📂 grok/  # Grok 破限工具
-    │       └── 📂 ReiPenFlow/  # ReiPenFlow
+    │       ├── 📂 ReiPenFlow/  # ReiPenFlow 破限工具
+    │       ├── 📂 gpt-5.6-instruct/  # GPT-5.6-Instruct 破限工具
+    │       ├── 📂 open-reverselab/  # Open-Reverselab 破限工具
+    │       ├── 📂 grok/  # Grok 破限工具
+    │       └── 📂 dsh/  # DSH 工具集
+    │           └── 📂 dsh-purge/  # DSH Purge 工具
 ```
 
 ---
@@ -178,6 +183,7 @@ AI-Account-Toolkit/
 | **ReiPenFlow** | ReiPenFlow 破限工具。 |
 | **gpt-5.6-instruct** | GPT-5.6-Instruct 破限工具。 |
 | **open-reverselab** | Open-Reverselab 破限工具。 |
+| **dsh-purge** | DSH Purge 工具。 |
 
 ---
 
