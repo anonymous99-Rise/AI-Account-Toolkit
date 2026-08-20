@@ -133,3 +133,6 @@
 [submodule "packages/破限工具/dsh/dsh-purge"]
 	path = packages/破限工具/dsh/dsh-purge
 	url = https://github.com/YuJunZhiXue/dsh-purge.git
+[submodule "packages/破限工具/dsh/dsh-pentest"]
+	path = packages/破限工具/dsh/dsh-pentest
+	url = https://github.com/howmp/dsh-pentest.git
