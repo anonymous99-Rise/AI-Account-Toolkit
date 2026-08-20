@@ -64,12 +64,12 @@ AI-Account-Toolkit/
     ├── 📧 email/              # 核心注册与 API 兼容层
     └── 🛠️ general/              # 核心注册与 API 兼容层
     │   └── 🛠️ 破限工具/             # 破限工具集合
+    │       ├── 📂 gpt-5.6-instruct/  # gpt-5.6-instruct
     │       ├── 📂 codex/  # Codex 破限工具
     │       ├── 📂 Claude code/  # Claude Code 破限工具
+    │       ├── 📂 open-reverselab/  # open-reverselab
     │       ├── 📂 grok/  # Grok 破限工具
-    │       ├── 📂 ReiPenFlow/  # ReiPenFlow 破限工具
-    │       ├── 📂 gpt-5.6-instruct/  # GPT-5.6-Instruct 破限工具
-    │       └── 📂 open-reverselab/  # Open-Reverselab 破限工具
+    │       └── 📂 ReiPenFlow/  # ReiPenFlow
 ```
 
 ---
