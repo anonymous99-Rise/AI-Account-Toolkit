@@ -67,9 +67,7 @@ AI-Account-Toolkit/
     │       ├── 📂 gpt-5.6-instruct/  # gpt-5.6-instruct
     │       ├── 📂 codex/  # Codex 破限工具
     │       ├── 📂 Claude code/  # Claude Code 破限工具
-    │       ├── 📂 dsh/  # DSH 工具集
-    │           ├── 📂 dsh-purge/  # DSH Purge 工具
-    │           └── 📂 dsh-pentest/  # DeepSeek Harness 渗透测试模式
+    │       ├── 📂 dsh/  # dsh
     │       ├── 📂 open-reverselab/  # open-reverselab
     │       ├── 📂 grok/  # Grok 破限工具
     │       └── 📂 ReiPenFlow/  # ReiPenFlow
