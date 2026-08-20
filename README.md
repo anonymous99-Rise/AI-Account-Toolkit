@@ -66,7 +66,10 @@ AI-Account-Toolkit/
     │   └── 🛠️ 破限工具/             # 破限工具集合
     │       ├── 📂 codex/  # Codex 破限工具
     │       ├── 📂 Claude code/  # Claude Code 破限工具
-    │       └── 📂 grok/  # Grok 破限工具
+    │       ├── 📂 grok/  # Grok 破限工具
+    │       ├── 📂 ReiPenFlow/  # ReiPenFlow 破限工具
+    │       ├── 📂 gpt-5.6-instruct/  # GPT-5.6-Instruct 破限工具
+    │       └── 📂 open-reverselab/  # Open-Reverselab 破限工具
 ```
 
 ---
@@ -172,6 +175,9 @@ AI-Account-Toolkit/
 | :--- | :--- |
 | **Claude code** | Claude Code 破限工具。 |
 | **codex** | Codex 破限工具。 |
+| **ReiPenFlow** | ReiPenFlow 破限工具。 |
+| **gpt-5.6-instruct** | GPT-5.6-Instruct 破限工具。 |
+| **open-reverselab** | Open-Reverselab 破限工具。 |
 
 ---
 
