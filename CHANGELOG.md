@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file. This projec
 
 ---
 
+## [2.12.2] - 2026-09-18
+
+### ✨ Added
+- **Zcode2Api** (`packages/Zcode/Zcode2Api`): 新增 `Zcode` 分类子模块 —— Z.AI（ZCode Start Plan）反向代理（Go 单文件）。
+  - OpenAI（`/v1/chat/completions`）与 Anthropic（`/v1/messages`）双协议兼容
+  - JWT 号池轮换 + 配额耗尽自动故障切换（429 / 3012 / 3007 / 3009 / 3010 / 529），代理 sticky / rotate 与失败自动暂停
+  - 内置 Node.js 验证码求解器（阿里云验证码）、SQLite 存储、实时配额仪表盘
+  - 模型目录随账号账单同步（当前 GLM-5.3 / GLM-5.3-Flash），可直接对接 Cursor / Claude Code / OpenCode
+
+### 📝 Documentation
+- README 新增「🧩 Zcode 模块」导航小节与子模块列表条目，目录树渲染顺序接入 `Zcode`（`docs/dir-mappings.json` + `readme-structure.yml`），子模块计数 38 → 47，版本升至 v2.12.2。
+
+---
+
 ## [2.12.1] - 2026-09-18
 
 ### ✨ Added

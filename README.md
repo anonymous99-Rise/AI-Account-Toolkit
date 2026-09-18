@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="License: MIT"></a>
-  <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/releases"><img src="https://img.shields.io/badge/Version-2.12.1-orange.svg?style=flat-square" alt="Version"></a>
+  <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/releases"><img src="https://img.shields.io/badge/Version-2.12.2-orange.svg?style=flat-square" alt="Version"></a>
   <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/stargazers"><img src="https://img.shields.io/github/stars/anonymous99-Rise/AI-Account-Toolkit?style=flat-square&color=gold" alt="GitHub stars"></a>
   <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/commits/main"><img src="https://img.shields.io/github/last-commit/anonymous99-Rise/AI-Account-Toolkit?style=flat-square" alt="GitHub last commit"></a>
 </p>
@@ -21,6 +21,7 @@
 - [🧭 项目导航](#-项目导航)
   - [📦 根目录核心工具](#-根目录核心工具)
   - [🤖 OpenAI 模块](#-openai-模块)
+  - [🧩 Zcode 模块](#-zcode-模块)
   - [🛡️ 逆向与通用工具](#-逆向与通用工具)
   - [📧 邮箱服务](#-邮箱服务)
   - [🌐 其他 AI 生态](#-其他-ai-生态)
@@ -175,6 +176,12 @@ AI-Account-Toolkit/
 | :--- | :--- |
 | **[nvidia-register](packages/nvidia/nvidia-register/README.md)** | 半自动注册 NVIDIA BUILD 账号并自动创建 AI_PLAYGROUNDS_KEY。 |
 
+### 🧩 Zcode 模块 (packages/Zcode)
+
+| 项目 | 描述 |
+| :--- | :--- |
+| **[Zcode2Api](packages/Zcode/Zcode2Api/README.md)** | Z.AI（ZCode Start Plan）反向代理（Go 单文件）：OpenAI / Anthropic 双协议、JWT 号池轮换与自动故障切换（429 / 3012 / 3007 / 3009 / 3010 / 529）、验证码自动识别、代理轮换与实时仪表盘。 |
+
 ### 🛠️ 破限工具 (packages/破限工具)
 
 | 项目 | 描述 |
@@ -254,7 +261,7 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 
 ---
 
-## 📋 子模块列表 (共 38 个)
+## 📋 子模块列表 (共 47 个)
 
 | 分类 | 路径 | 核心功能 |
 | :--- | :--- | :--- |
@@ -265,6 +272,7 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 | **Cursor** | `packages/cursor/` | 账号自动注册与管理 |
 | **Grok** | `packages/grok/`, `grokRegister-cpa/` | x.ai 批量注册机、分类面板、CLI/协议转换、CPA 入库 |
 | **NVIDIA** | `packages/nvidia/` | NVIDIA 账号自动注册 |
+| **Zcode** | `packages/Zcode/` | Z.AI (ZCode) 反向代理、号池轮换、故障切换、验证码识别 |
 | **General** | `packages/general/` | **gpt4free**, 注册聚合, 支付自动化, 免税地址生成 |
 
 ---

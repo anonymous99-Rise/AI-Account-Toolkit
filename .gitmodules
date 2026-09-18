@@ -136,3 +136,6 @@
 [submodule "packages/破限工具/dsh/dsh-pentest"]
 	path = packages/破限工具/dsh/dsh-pentest
 	url = https://github.com/howmp/dsh-pentest.git
+[submodule "packages/Zcode/Zcode2Api"]
+	path = packages/Zcode/Zcode2Api
+	url = https://github.com/D3-vin/Zcode2Api.git

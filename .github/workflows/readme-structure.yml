@@ -67,7 +67,7 @@ jobs:
 
           # 生成 packages 结构行
           packages_lines = []
-          pkg_cats = ['openai', 'claude', 'gemini', 'codex', 'cursor', 'grok', 'nvidia', 'email', 'general']
+          pkg_cats = ['openai', 'claude', 'gemini', 'codex', 'cursor', 'grok', 'nvidia', 'email', 'general', 'Zcode']
           for cat in pkg_cats:
               if cat in submodule_cats or os.path.exists(f'packages/{cat}'):
                   info = packages_map.get(cat, {})
@@ -163,7 +163,7 @@ jobs:
           output.append("└── 📂 packages/                # 模块化子模块 (Submodules)")
 
           # packages 子目录
-          pkg_order = ['openai', 'claude', 'gemini', 'codex', 'cursor', 'grok', 'nvidia', 'email', 'general']
+          pkg_order = ['openai', 'claude', 'gemini', 'codex', 'cursor', 'grok', 'nvidia', 'email', 'general', 'Zcode']
           name_to_pkg = {name: (emoji, has_children) for name, emoji, not_last, has_children in pkg_entries}
 
           last_idx = len([n for n in pkg_order if n in name_to_pkg]) - 1
