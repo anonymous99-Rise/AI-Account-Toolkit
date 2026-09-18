@@ -76,6 +76,7 @@ AI-Account-Toolkit/
     │       ├── 📂 MD/  # Claude CLAUDE.md 破限指令模板
     │       ├── 📂 ctf-sandbox/  # 小刘破甲 (Codex CLI 破限提示词 + 一键部署)
     │       ├── 📂 ReiPenFlow/  # ReiPenFlow 渗透工作流
+    │       ├── 📂 GPT5.6-5.5/  # GPT-5.6 / 5.5 Codex 破限与逆向 skill 合集
     │       ├── 📂 grok/  # Grok 破限工具
     │       └── 📂 codex/  # Codex 破限工具
 ```
