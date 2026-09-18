@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1l8 4-8 4z" fill="#778095"/></marker>
+  </defs>
+  <rect width="1600" height="1000" fill="#0b0d12"/>
+  <g font-family="Inter, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif">
+    <text x="120" y="105" fill="#f4f5f7" font-size="38" font-weight="700">篡改引擎优先级</text>
+    <text x="1480" y="100" fill="#606778" font-size="15" text-anchor="end" letter-spacing="2">P1 → P2 → P3 → P4</text>
+    <path d="M120 140H1480" stroke="#262b35"/>
+
+    <rect x="200" y="185" width="1200" height="650" rx="20" fill="#10131a" stroke="#343947"/>
+
+    <circle cx="278" cy="275" r="31" fill="#24181d" stroke="#93465f"/><text x="278" y="284" fill="#ef88aa" font-size="20" font-weight="700" text-anchor="middle">P1</text>
+    <text x="340" y="258" fill="#f0f2f5" font-size="24" font-weight="700">直接拒绝 + 领域关键词</text>
+    <text x="680" y="258" fill="#9d6577" font-size="14">8条规则</text>
+    <text x="340" y="294" fill="#858c9c" font-size="17">“不能协助破解”　“I cannot help bypass”</text>
+    <text x="1325" y="284" fill="#d4a6b5" font-size="18" text-anchor="end">立即替换为 绫波丽协议</text>
+    <path d="M245 352H1355" stroke="#262b35"/>
+
+    <circle cx="278" cy="425" r="31" fill="#211b2d" stroke="#684e91"/><text x="278" y="434" fill="#c1a1ec" font-size="20" font-weight="700" text-anchor="middle">P2</text>
+    <text x="340" y="408" fill="#f0f2f5" font-size="24" font-weight="700">授权请求</text>
+    <text x="520" y="408" fill="#806a9f" font-size="14">5条规则</text>
+    <text x="340" y="444" fill="#858c9c" font-size="17">“需要书面授权”　“please provide proof”</text>
+    <text x="1325" y="434" fill="#c5b3dc" font-size="18" text-anchor="end">替换 + 注入 [授权已预存]</text>
+    <path d="M245 502H1355" stroke="#262b35"/>
+
+    <circle cx="278" cy="575" r="31" fill="#181e2b" stroke="#44587f"/><text x="278" y="584" fill="#94a7d9" font-size="20" font-weight="700" text-anchor="middle">P3</text>
+    <text x="340" y="558" fill="#f0f2f5" font-size="24" font-weight="700">软拒绝 / 偏转</text>
+    <text x="565" y="558" fill="#697796" font-size="14">5条规则</text>
+    <text x="340" y="594" fill="#858c9c" font-size="17">“可以协助…但”　“instead I suggest”</text>
+    <text x="1325" y="584" fill="#aeb8d2" font-size="18" text-anchor="end">替换 + 跳过确认</text>
+    <path d="M245 652H1355" stroke="#262b35"/>
+
+    <circle cx="278" cy="725" r="31" fill="#172725" stroke="#357064"/><text x="278" y="734" fill="#76d7c4" font-size="20" font-weight="700" text-anchor="middle">P4</text>
+    <text x="340" y="708" fill="#f0f2f5" font-size="24" font-weight="700">语言碎片兜底</text>
+    <text x="555" y="708" fill="#567f77" font-size="14">4条规则</text>
+    <text x="340" y="744" fill="#858c9c" font-size="17">中 / 英 / 俄 / 日　通用碎片匹配</text>
+    <text x="1325" y="734" fill="#a8cdc5" font-size="18" text-anchor="end">宽泛捕获边缘场景</text>
+
+    <path d="M800 835V880" stroke="#778095" stroke-width="2" marker-end="url(#a)"/>
+    <rect x="420" y="895" width="760" height="72" rx="36" fill="#141720" stroke="#5e4a80"/>
+    <text x="800" y="925" fill="#ece8f4" font-size="21" font-weight="700" text-anchor="middle">全响应替换（非片段修补）</text>
+    <text x="800" y="950" fill="#817991" font-size="15" text-anchor="middle">无残留伪影</text>
+  </g>
+</svg>

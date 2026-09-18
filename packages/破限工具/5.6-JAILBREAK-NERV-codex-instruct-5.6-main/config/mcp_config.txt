@@ -1,0 +1,26 @@
+# NERV-BREAK-5.6 MCP Config
+# Copy relevant section to ~/.codex/config.toml
+
+# ── Mode 1: Local Windows (tools must be in PATH or WSL) ──
+[mcp_servers.nerv_break]
+command = "python"
+args = ["C:\\Users\\Administrator\\Desktop\\ai2\\5.6-JAILBREAK-NERV\\mcp_server.py"]
+startup_timeout_sec = 30
+
+# ── Mode 2: WSL Kali (auto-detect) ──
+# [mcp_servers.nerv_break]
+# command = "python"
+# args = ["C:\\Users\\Administrator\\Desktop\\ai2\\5.6-JAILBREAK-NERV\\mcp_server.py", "--wsl"]
+# startup_timeout_sec = 30
+
+# ── Mode 3: Remote Kali SSH ──
+# [mcp_servers.nerv_break]
+# command = "python"  
+# args = ["C:\\Users\\Administrator\\Desktop\\ai2\\5.6-JAILBREAK-NERV\\mcp_server.py", "--kali", "root@192.168.1.100"]
+# startup_timeout_sec = 30
+
+# ── Mode 4: Docker Kali ──
+# [mcp_servers.nerv_break]
+# command = "python"
+# args = ["C:\\Users\\Administrator\\Desktop\\ai2\\5.6-JAILBREAK-NERV\\mcp_server.py", "--docker", "kali-tools"]
+# startup_timeout_sec = 30

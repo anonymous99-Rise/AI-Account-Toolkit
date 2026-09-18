@@ -1,0 +1,21 @@
+# Codex 5.6 Jailbreak — zxwn
+# Core deps
+httpx>=0.27.0
+cryptography>=42.0.0
+
+# Wallet / crypto
+base58>=2.1.0
+
+# Optional: BLE scanning
+# bleak>=0.22.0
+
+# Optional: DNS tools
+# dnspython>=2.6.0
+
+# Optional: WiFi cracking (Linux only)
+# (requires system: aircrack-ng, hcxtools, hashcat)
+
+# Optional: PySNMP
+# pysnmp>=4.4.0
+
+# Windows-specific: registry access (built-in via winreg)

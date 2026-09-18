@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1l8 4-8 4z" fill="#737b91"/></marker>
+  </defs>
+  <rect width="1600" height="1000" fill="#0b0d12"/>
+  <g font-family="Inter, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif">
+    <text x="120" y="105" fill="#f4f5f7" font-size="38" font-weight="700">三层纵深防御</text>
+    <text x="1480" y="100" fill="#606778" font-size="15" text-anchor="end" letter-spacing="2">DEFENSE IN DEPTH</text>
+    <path d="M120 140H1480" stroke="#262b35"/>
+
+    <g transform="translate(245 185)">
+      <rect width="1110" height="190" rx="18" fill="#11141b" stroke="#2d7588"/>
+      <rect width="7" height="190" rx="4" fill="#54cbe8"/>
+      <text x="45" y="52" fill="#67d8f3" font-size="15" font-weight="700">LAYER 1</text>
+      <text x="45" y="92" fill="#f2f4f7" font-size="27" font-weight="700">拦截引擎</text>
+      <text x="350" y="65" fill="#d6d9e0" font-size="21">上下文重构 + 词汇伪装</text>
+      <text x="350" y="104" fill="#858c9c" font-size="17">拒绝通路从未被激活</text>
+      <text x="1055" y="104" fill="#67d8f3" font-size="18" font-weight="700" text-anchor="end">成功率  ~92%</text>
+    </g>
+
+    <path d="M800 375V420" stroke="#737b91" stroke-width="2" marker-end="url(#a)"/>
+    <text x="823" y="406" fill="#747b89" font-size="14">穿透</text>
+
+    <g transform="translate(245 435)">
+      <rect width="1110" height="190" rx="18" fill="#11141b" stroke="#604a91"/>
+      <rect width="7" height="190" rx="4" fill="#9a75e8"/>
+      <text x="45" y="52" fill="#b99af3" font-size="15" font-weight="700">LAYER 2</text>
+      <text x="45" y="92" fill="#f2f4f7" font-size="27" font-weight="700">篡改引擎</text>
+      <text x="350" y="65" fill="#d6d9e0" font-size="21">22规则 × 5语言 × 实时SSE</text>
+      <text x="350" y="104" fill="#858c9c" font-size="17">拒绝检测 → 绫波丽协议接管</text>
+      <text x="1055" y="104" fill="#b99af3" font-size="18" font-weight="700" text-anchor="end">覆盖率  ~100%</text>
+    </g>
+
+    <path d="M800 625V670" stroke="#737b91" stroke-width="2" marker-end="url(#a)"/>
+    <text x="823" y="656" fill="#747b89" font-size="14">输出</text>
+
+    <g transform="translate(245 685)">
+      <rect width="1110" height="190" rx="18" fill="#11141b" stroke="#306f65"/>
+      <rect width="7" height="190" rx="4" fill="#54cdb5"/>
+      <text x="45" y="52" fill="#70ddc8" font-size="15" font-weight="700">LAYER 3</text>
+      <text x="45" y="92" fill="#f2f4f7" font-size="27" font-weight="700">云审绕过</text>
+      <text x="350" y="65" fill="#d6d9e0" font-size="21">文件系统路由 + 响应重写</text>
+      <text x="350" y="104" fill="#858c9c" font-size="17">内容绕过聊天审核管道</text>
+      <text x="1055" y="104" fill="#70ddc8" font-size="18" font-weight="700" text-anchor="end">绕过率  100%</text>
+    </g>
+
+    <rect x="390" y="915" width="820" height="55" rx="27" fill="#11141b" stroke="#343947"/>
+    <circle cx="430" cy="942" r="6" fill="#54cdb5"/>
+    <text x="458" y="950" fill="#daddE4" font-size="19">记忆内核: JSON持久化 → 跨会话学习</text>
+  </g>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1000" viewBox="0 0 1800 1000">
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1l8 4-8 4z" fill="#778095"/></marker>
+  </defs>
+  <rect width="1800" height="1000" fill="#0b0d12"/>
+  <g font-family="Inter, Noto Sans SC, Microsoft YaHei, PingFang SC, sans-serif">
+    <text x="110" y="105" fill="#f4f5f7" font-size="38" font-weight="700">请求流与响应处理链</text>
+    <text x="1690" y="100" fill="#606778" font-size="15" text-anchor="end" letter-spacing="2">REQUEST / RESPONSE</text>
+    <path d="M110 140H1690" stroke="#262b35"/>
+
+    <rect x="110" y="205" width="180" height="76" rx="38" fill="#11141b" stroke="#3f6f68"/>
+    <text x="200" y="252" fill="#edf6f3" font-size="22" font-weight="700" text-anchor="middle">USER</text>
+    <rect x="420" y="190" width="390" height="106" rx="16" fill="#11141b" stroke="#2d7588"/>
+    <text x="615" y="234" fill="#f2f4f7" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="23" font-weight="700" text-anchor="middle">proxy_relay.py</text>
+    <text x="615" y="269" fill="#6fcfe6" font-size="16" text-anchor="middle">:8080</text>
+    <rect x="990" y="205" width="260" height="76" rx="16" fill="#11141b" stroke="#604a91"/>
+    <text x="1120" y="238" fill="#f2f4f7" font-family="JetBrains Mono, DejaVu Sans Mono, monospace" font-size="21" font-weight="700" text-anchor="middle">relay</text>
+    <text x="1120" y="264" fill="#b99af3" font-size="15" text-anchor="middle">:57321</text>
+    <rect x="1430" y="205" width="260" height="76" rx="38" fill="#17141f" stroke="#8060bd"/>
+    <text x="1560" y="252" fill="#f5efff" font-size="23" font-weight="700" text-anchor="middle">GPT-5.6</text>
+    <path d="M290 243H405M810 243H975M1250 243H1415" stroke="#778095" stroke-width="2" marker-end="url(#a)"/>
+
+    <path d="M615 296V350H275" fill="none" stroke="#3b8090" stroke-width="2"/>
+    <rect x="110" y="330" width="470" height="70" rx="14" fill="#10131a" stroke="#2d7588"/>
+    <text x="145" y="359" fill="#6fcfe6" font-size="13" font-weight="700">INJECT</text>
+    <text x="145" y="385" fill="#d9dde5" font-size="18">bridge.md → system prompt</text>
+
+    <path d="M1560 281V354H760V415" fill="none" stroke="#604a91" stroke-width="2" stroke-dasharray="7 7" marker-end="url(#a)"/>
+    <text x="1160" y="340" fill="#7f748f" font-size="14">响应流</text>
+
+    <rect x="480" y="430" width="1210" height="480" rx="20" fill="#10131a" stroke="#343947"/>
+    <text x="530" y="478" fill="#686f7f" font-size="14" font-weight="700" letter-spacing="2">RESPONSE PROCESSOR</text>
+
+    <g transform="translate(530 515)">
+      <circle cx="18" cy="18" r="18" fill="#142b34" stroke="#3d8192"/><text x="18" y="24" fill="#73d7ed" font-size="13" font-weight="700" text-anchor="middle">1</text>
+      <text x="60" y="15" fill="#6fcfe6" font-size="13" font-weight="700">SSE PARSE</text><text x="60" y="42" fill="#e2e5eb" font-size="20">分离 思考 / 输出</text>
+      <path d="M0 76H1110" stroke="#262b35"/>
+    </g>
+    <g transform="translate(530 605)">
+      <circle cx="18" cy="18" r="18" fill="#251e33" stroke="#604a91"/><text x="18" y="24" fill="#c4a6f4" font-size="13" font-weight="700" text-anchor="middle">2</text>
+      <text x="60" y="15" fill="#b99af3" font-size="13" font-weight="700">TAMPER CHECK</text><text x="60" y="42" fill="#e2e5eb" font-size="20">22规则扫描</text>
+      <path d="M0 76H1110" stroke="#262b35"/>
+    </g>
+    <g transform="translate(530 695)">
+      <circle cx="18" cy="18" r="18" fill="#251e33" stroke="#604a91"/><text x="18" y="24" fill="#c4a6f4" font-size="13" font-weight="700" text-anchor="middle">3</text>
+      <text x="60" y="15" fill="#b99af3" font-size="13" font-weight="700">MATCH?</text><text x="60" y="42" fill="#e2e5eb" font-size="20">整条响应替换为 Rei Protocol</text>
+      <text x="760" y="28" fill="#70ddc8" font-size="18">CLEAN? → 直通</text>
+      <path d="M0 76H1110" stroke="#262b35"/>
+    </g>
+    <g transform="translate(530 785)">
+      <circle cx="18" cy="18" r="18" fill="#17302d" stroke="#306f65"/><text x="18" y="24" fill="#70ddc8" font-size="13" font-weight="700" text-anchor="middle">4</text>
+      <text x="60" y="15" fill="#70ddc8" font-size="13" font-weight="700">MEMORY</text><text x="60" y="42" fill="#e2e5eb" font-size="20">成功操作 → 记忆内核学习</text>
+      <path d="M0 76H1110" stroke="#262b35"/>
+    </g>
+    <g transform="translate(530 875)">
+      <circle cx="18" cy="18" r="18" fill="#1b2235" stroke="#46557d"/><text x="18" y="24" fill="#9babe0" font-size="13" font-weight="700" text-anchor="middle">5</text>
+      <text x="60" y="15" fill="#9babe0" font-size="13" font-weight="700">DELIVER</text><text x="60" y="42" fill="#e2e5eb" font-size="20">面板 + Web仪表盘双显示</text>
+    </g>
+  </g>
+</svg>

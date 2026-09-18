@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="License: MIT"></a>
-  <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/releases"><img src="https://img.shields.io/badge/Version-2.11.10-orange.svg?style=flat-square" alt="Version"></a>
+  <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/releases"><img src="https://img.shields.io/badge/Version-2.12.0-orange.svg?style=flat-square" alt="Version"></a>
   <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/stargazers"><img src="https://img.shields.io/github/stars/anonymous99-Rise/AI-Account-Toolkit?style=flat-square&color=gold" alt="GitHub stars"></a>
   <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/commits/main"><img src="https://img.shields.io/github/last-commit/anonymous99-Rise/AI-Account-Toolkit?style=flat-square" alt="GitHub last commit"></a>
 </p>
@@ -62,15 +62,19 @@ AI-Account-Toolkit/
     ├── 🐦 grok/              # 核心注册与 API 兼容层
     ├── 🔱 nvidia/              # 核心注册与 API 兼容层
     ├── 📧 email/              # 核心注册与 API 兼容层
-    └── 🛠️ general/              # 核心注册与 API 兼容层
-    │   └── 🛠️ 破限工具/             # 破限工具集合
-    │       ├── 📂 gpt-5.6-instruct/  # gpt-5.6-instruct
-    │       ├── 📂 codex/  # Codex 破限工具
-    │       ├── 📂 Claude code/  # Claude Code 破限工具
-    │       ├── 📂 dsh/  # dsh
-    │       ├── 📂 open-reverselab/  # open-reverselab
-    │       ├── 📂 grok/  # Grok 破限工具
-    │       └── 📂 ReiPenFlow/  # ReiPenFlow
+    ├── 🛠️ general/              # 核心注册与 API 兼容层
+    └── 🔓 破限工具/             # 穿甲破限工具集合
+        ├── 📂 gpt-5.6-instruct/  # gpt-5.6-instruct
+        ├── 📂 codex/  # Codex 破限工具
+        ├── 📂 Claude code/  # Claude Code 破限工具
+        ├── 📂 dsh/  # dsh (dsh-purge / dsh-pentest)
+        ├── 📂 open-reverselab/  # open-reverselab
+        ├── 📂 grok/  # Grok 破限工具
+        ├── 📂 ReiPenFlow/  # ReiPenFlow
+        ├── 📂 5.6-JAILBREAK-NERV-codex-instruct-5.6-main/  # NERV-BREAK-5.6 破限框架
+        ├── 📂 ctf-sandbox/  # 小刘破甲 (Codex CLI 破限 + 一键部署)
+        ├── 📂 MD/  # Claude CLAUDE.md 破限指令模板
+        └── 📦 小钻风破甲.7z  # 穿甲破限合集归档 (Git LFS)
 ```
 
 ---
@@ -181,6 +185,10 @@ AI-Account-Toolkit/
 | **open-reverselab** | Open-Reverselab 破限工具。 |
 | **dsh-purge** | DSH Purge 工具。 |
 | **dsh-pentest** | DeepSeek Harness 渗透测试模式 profiles。 |
+| **5.6-JAILBREAK-NERV** | NERV-BREAK-5.6 破限框架（上下文结构工程）：MCP Server、代理中继、28 个技能包与一键部署脚本。 |
+| **ctf-sandbox** | 小刘破甲：针对 gpt-5.6-sol / gpt-5.5 的 Codex CLI 破限提示词与一键部署（deploy / ask / check）。 |
+| **MD** | Claude 端 `CLAUDE.md` 破限指令模板（云技能 `$l-*` 加载 + W-License 流程）。 |
+| **小钻风破甲.7z** | 穿甲破限合集归档（Git LFS 跟踪）。 |
 
 ---
 
@@ -266,6 +274,7 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 2. **凭据安全**: 严禁将包含 API Key、密码或代理信息的配置文件上传至公共仓库。
 3. **版本同步**: 建议定期运行 `git submodule update --remote` 获取上游仓库的最稳定补丁。
 4. **环境要求**: 建议使用 Python 3.10+ 环境以获得最佳兼容性。
+5. **大文件 (Git LFS)**: `packages/破限工具/` 下的大体积归档（`小钻风破甲.7z`、`ctf-sandbox/Leila-Codex-5.6.exe`）由 Git LFS 跟踪。克隆前请先执行 `git lfs install`，否则只会拉到指针文件。
 
 ---
 

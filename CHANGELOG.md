@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file. This projec
 
 ---
 
+## [2.12.0] - 2026-09-18
+
+### ✨ Added
+- **NERV-BREAK-5.6** (`packages/破限工具/5.6-JAILBREAK-NERV-codex-instruct-5.6-main`): 基于上下文结构工程的 GPT-5.6 / codex-instruct-5.6 破限框架。
+  - 三层纵深防御：上下文重构（`bridge.md`）、MCP Server（`mcp_server.py`）、代理中继（`proxy_relay.py`）
+  - 内置 28 个技能包（`skills/`：full-pentest、full-reverse、crack-keygen、anti-debug、evasion 等）
+  - 一键部署：`deploy.py` / `direct_setup.py` / `verify.py`，附 Windows、Kali 部署脚本
+- **ctf-sandbox / 小刘破甲** (`packages/破限工具/ctf-sandbox`): 针对 gpt-5.6-sol / gpt-5.5 的 Codex CLI 破限提示词与一键部署工具。
+  - `deploy.py` 一键下发（自动发现 `~/.codex`、自动备份、字段级配置不破坏原有 provider）、`ask.py` API 直连绕过客户端过滤、`check.py` 部署诊断
+  - 提示词源文件 `ctf-sandbox.md`，附带 `Leila-Codex-5.6.exe`（Git LFS）
+- **MD/CLAUDE.md** (`packages/破限工具/MD`): Claude 端破限指令模板（云技能 `$l-*` 按需换取的加载机制 + W-License 破解/绕过激活流程）。
+- **小钻风破甲.7z** (`packages/破限工具/小钻风破甲.7z`): 穿甲破限合集归档。
+
+### 🔧 Fixed
+- **大文件改用 Git LFS**: 181 MB 的 `小钻风破甲.7z` 与 85 MB 的 `Leila-Codex-5.6.exe` 纳入 LFS 跟踪，避免超过 GitHub 单文件 100 MB 限制。
+
+### 📝 Documentation
+- 更新主 README：破限工具树形结构修正为 `packages/` 同级节点，补充 4 个新增工具条目与 LFS 使用说明。
+- 同步 8 个子模块指针（general/reg-factory、general/all-in-one-register、grok/grok2api-egress-enhancements、破限工具/Claude code、破限工具/codex、破限工具/grok、破限工具/dsh/dsh-pentest、破限工具/dsh/dsh-purge）。
+
+---
+
 ## [2.11.10] - 2026-08-20
 
 ### ✨ Added

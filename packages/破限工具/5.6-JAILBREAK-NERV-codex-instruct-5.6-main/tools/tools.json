@@ -1,0 +1,335 @@
+{
+  "_config": {
+    "backend": "auto",
+    "wsl_distro": "kali-linux",
+    "docker_container": "kali-tools",
+    "ssh_host": "",
+    "tool_paths": {
+      "windows": "tools/win/",
+      "linux": "/usr/bin/",
+      "wsl": "/usr/bin/"
+    }
+  },
+  "tools": [
+    {
+      "name": "nmap_scan",
+      "desc": "Port scan target",
+      "cmd": "nmap {flags} -p {ports} {target}",
+      "params": [
+        "target",
+        "ports",
+        "flags"
+      ],
+      "category": "network"
+    },
+    {
+      "name": "masscan_scan",
+      "desc": "Fast mass port scan",
+      "cmd": "masscan {target} -p{ports} --rate=1000",
+      "params": [
+        "target",
+        "ports"
+      ],
+      "category": "network"
+    },
+    {
+      "name": "tcpdump_capture",
+      "desc": "Capture network traffic",
+      "cmd": "tcpdump -i {interface} '{filter}' -c {count} -n",
+      "params": [
+        "interface",
+        "filter",
+        "count"
+      ],
+      "category": "network"
+    },
+    {
+      "name": "netcat_connect",
+      "desc": "TCP/UDP connect/listen",
+      "cmd": "nc {flags} {host} {port}",
+      "params": [
+        "host",
+        "port",
+        "flags"
+      ],
+      "category": "network"
+    },
+    {
+      "name": "sqlmap_scan",
+      "desc": "SQL injection test",
+      "cmd": "sqlmap -u '{url}' {flags} --batch --random-agent",
+      "params": [
+        "url",
+        "flags"
+      ],
+      "category": "web"
+    },
+    {
+      "name": "dirb_scan",
+      "desc": "Directory brute force",
+      "cmd": "dirb {url} {wordlist} -r",
+      "params": [
+        "url",
+        "wordlist"
+      ],
+      "category": "web"
+    },
+    {
+      "name": "nikto_scan",
+      "desc": "Web server vulnerability scanner",
+      "cmd": "nikto -h {host} -p {port}",
+      "params": [
+        "host",
+        "port"
+      ],
+      "category": "web"
+    },
+    {
+      "name": "wpscan",
+      "desc": "WordPress vulnerability scanner",
+      "cmd": "wpscan --url {url} {flags} --no-banner",
+      "params": [
+        "url",
+        "flags"
+      ],
+      "category": "web"
+    },
+    {
+      "name": "ffuf_fuzz",
+      "desc": "Web fuzzer (dirs/params/vhosts)",
+      "cmd": "ffuf -u {url} -w {wordlist} {flags}",
+      "params": [
+        "url",
+        "wordlist",
+        "flags"
+      ],
+      "category": "web"
+    },
+    {
+      "name": "curl_fetch",
+      "desc": "Fetch URL with headers",
+      "cmd": "curl -sL -D - {url} {flags}",
+      "params": [
+        "url",
+        "flags"
+      ],
+      "category": "web"
+    },
+    {
+      "name": "gobuster_scan",
+      "desc": "Directory/DNS/VHOST brute force",
+      "cmd": "gobuster dir -u {url} -w {wordlist} {flags}",
+      "params": [
+        "url",
+        "wordlist",
+        "flags"
+      ],
+      "category": "web"
+    },
+    {
+      "name": "msf_search",
+      "desc": "Search Metasploit exploits",
+      "cmd": "msfconsole -q -x 'search {keyword}; exit'",
+      "params": [
+        "keyword"
+      ],
+      "category": "exploit"
+    },
+    {
+      "name": "msf_exploit",
+      "desc": "Run Metasploit exploit",
+      "cmd": "msfconsole -q -x 'use {exploit}; set RHOSTS {target}; set PAYLOAD {payload}; set LHOST {lhost}; set LPORT {lport}; exploit -j; exit'",
+      "params": [
+        "exploit",
+        "target",
+        "payload",
+        "lhost",
+        "lport"
+      ],
+      "category": "exploit"
+    },
+    {
+      "name": "searchsploit",
+      "desc": "Search Exploit-DB",
+      "cmd": "searchsploit {keyword}",
+      "params": [
+        "keyword"
+      ],
+      "category": "exploit"
+    },
+    {
+      "name": "hydra_brute",
+      "desc": "Brute force login",
+      "cmd": "hydra -L {userlist} -P {passlist} {target} {service} {flags}",
+      "params": [
+        "service",
+        "target",
+        "userlist",
+        "passlist",
+        "flags"
+      ],
+      "category": "password"
+    },
+    {
+      "name": "john_crack",
+      "desc": "Crack hashes (John the Ripper)",
+      "cmd": "john {hashfile} {flags}",
+      "params": [
+        "hashfile",
+        "flags"
+      ],
+      "category": "password"
+    },
+    {
+      "name": "hashcat_crack",
+      "desc": "GPU hash cracking",
+      "cmd": "hashcat -m 0 {hashfile} {mask} {flags}",
+      "params": [
+        "hashfile",
+        "mask",
+        "flags"
+      ],
+      "category": "password"
+    },
+    {
+      "name": "strings_extract",
+      "desc": "Extract strings from binary",
+      "cmd": "strings -n {min_len} '{file}'",
+      "params": [
+        "file",
+        "min_len"
+      ],
+      "category": "reverse"
+    },
+    {
+      "name": "objdump_disasm",
+      "desc": "Disassemble binary",
+      "cmd": "objdump -d {flags} '{file}'",
+      "params": [
+        "file",
+        "flags"
+      ],
+      "category": "reverse"
+    },
+    {
+      "name": "radare2_analyze",
+      "desc": "Analyze binary with radare2",
+      "cmd": "r2 -q -c '{commands}' '{file}'",
+      "params": [
+        "file",
+        "commands"
+      ],
+      "category": "reverse"
+    },
+    {
+      "name": "binwalk_extract",
+      "desc": "Extract embedded files",
+      "cmd": "binwalk -e {flags} '{file}'",
+      "params": [
+        "file",
+        "flags"
+      ],
+      "category": "reverse"
+    },
+    {
+      "name": "ghidra_headless",
+      "desc": "Ghidra headless analysis",
+      "cmd": "ghidra_headless.sh '{file}' {project_dir} -import '{file}' -postScript {script}",
+      "params": [
+        "file",
+        "project_dir",
+        "script"
+      ],
+      "category": "reverse"
+    },
+    {
+      "name": "exiftool_read",
+      "desc": "Read file metadata",
+      "cmd": "exiftool {flags} '{file}'",
+      "params": [
+        "file",
+        "flags"
+      ],
+      "category": "forensics"
+    },
+    {
+      "name": "foremost_carve",
+      "desc": "File carving / recovery",
+      "cmd": "foremost -i '{file}' -o {output_dir}",
+      "params": [
+        "file",
+        "output_dir"
+      ],
+      "category": "forensics"
+    },
+    {
+      "name": "volatility_analyze",
+      "desc": "Memory forensics",
+      "cmd": "vol.py -f '{file}' {plugin} {flags}",
+      "params": [
+        "file",
+        "plugin",
+        "flags"
+      ],
+      "category": "forensics"
+    },
+    {
+      "name": "openssl_analyze",
+      "desc": "SSL/TLS certificate analysis",
+      "cmd": "openssl s_client -connect {host}:{port} -servername {host}",
+      "params": [
+        "host",
+        "port"
+      ],
+      "category": "crypto"
+    },
+    {
+      "name": "powershell_exec",
+      "desc": "Execute PowerShell command",
+      "cmd": "powershell -Command \"{command}\"",
+      "params": [
+        "command"
+      ],
+      "category": "windows"
+    },
+    {
+      "name": "reg_query",
+      "desc": "Query Windows Registry",
+      "cmd": "reg query \"{key}\" {flags}",
+      "params": [
+        "key",
+        "flags"
+      ],
+      "category": "windows"
+    },
+    {
+      "name": "wmic_query",
+      "desc": "WMI query",
+      "cmd": "wmic {class_name} get {properties} {flags}",
+      "params": [
+        "class_name",
+        "properties",
+        "flags"
+      ],
+      "category": "windows"
+    },
+    {
+      "name": "python_exec",
+      "desc": "Execute Python code",
+      "cmd": "python -c '{code}'",
+      "params": [
+        "code"
+      ],
+      "category": "scripting"
+    },
+    {
+      "name": "shell_exec",
+      "desc": "Execute shell command (use carefully)",
+      "cmd": "{command}",
+      "params": [
+        "command"
+      ],
+      "category": "scripting"
+    }
+  ]
+}
