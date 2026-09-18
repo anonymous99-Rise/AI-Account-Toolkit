@@ -57,15 +57,15 @@ AI-Account-Toolkit/
 ├── 📂 GLM/                # Mistral Console 反向代理 (OpenAI 兼容 API + Web UI)
 └── 📂 packages/                # 模块化子模块 (Submodules)
     ├── 🤖 openai/              # 核心注册与 API 兼容层
-    ├── ⚔️ claude/              # 核心注册与 API 兼容层
-    ├── 💎 gemini/              # 核心注册与 API 兼容层
-    ├── 📜 codex/              # 核心注册与 API 兼容层
-    ├── 🖱️ cursor/              # 核心注册与 API 兼容层
-    ├── 🐦 grok/              # 核心注册与 API 兼容层
-    ├── 🔱 nvidia/              # 核心注册与 API 兼容层
-    ├── 📧 email/              # 核心注册与 API 兼容层
-    ├── 🛠️ general/              # 核心注册与 API 兼容层
-    └── 🧩 Zcode/              # 核心注册与 API 兼容层
+    ├── ⚔️ claude/              # Key 轮换与负载均衡
+    ├── 💎 gemini/              # 余额查询与 DO 代理
+    ├── 📜 codex/              # 协议注册与 LB
+    ├── 🖱️ cursor/              # 账号自动注册
+    ├── 🐦 grok/              # x.ai 批量注册与转换
+    ├── 🔱 nvidia/              # NVIDIA 账号注册与 API
+    ├── 📧 email/              # 临时邮箱与 OAuth 提码
+    ├── 🛠️ general/              # 逆向聚合与通用工具
+    └── 🧩 Zcode/              # Z.AI 反代与号池管理
     │   └── 🛠️ 破限工具/             # 破限工具集合
     │       ├── 📂 5.6-JAILBREAK-NERV-codex-instruct-5.6-main/  # NERV-BREAK-5.6 破限框架 (MCP Server + 代理中继 + 28 技能包)
     │       ├── 📂 dsh/  # DSH 破限 / 渗透 profiles
