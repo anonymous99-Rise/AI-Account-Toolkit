@@ -64,7 +64,8 @@ AI-Account-Toolkit/
     ├── 🐦 grok/              # 核心注册与 API 兼容层
     ├── 🔱 nvidia/              # 核心注册与 API 兼容层
     ├── 📧 email/              # 核心注册与 API 兼容层
-    └── 🛠️ general/              # 核心注册与 API 兼容层
+    ├── 🛠️ general/              # 核心注册与 API 兼容层
+    └── 🧩 Zcode/              # 核心注册与 API 兼容层
     │   └── 🛠️ 破限工具/             # 破限工具集合
     │       ├── 📂 5.6-JAILBREAK-NERV-codex-instruct-5.6-main/  # NERV-BREAK-5.6 破限框架 (MCP Server + 代理中继 + 28 技能包)
     │       ├── 📂 dsh/  # DSH 破限 / 渗透 profiles
