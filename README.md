@@ -70,6 +70,7 @@ AI-Account-Toolkit/
     │       ├── 📂 5.6-JAILBREAK-NERV-codex-instruct-5.6-main/  # NERV-BREAK-5.6 破限框架 (MCP Server + 代理中继 + 28 技能包)
     │       ├── 📂 dsh/  # DSH 破限 / 渗透 profiles
     │       ├── 📂 gpt-5.6-instruct/  # GPT-5.6 Instruct 破限工具
+    │       ├── 📂 omni-flow 羊/  # omni-flow 全域安全研究 skill 路由器
     │       ├── 📂 Claude code/  # Claude Code 破限工具
     │       ├── 📂 open-reverselab/  # Open-Reverselab 逆向实验台
     │       ├── 📂 MD/  # Claude CLAUDE.md 破限指令模板
