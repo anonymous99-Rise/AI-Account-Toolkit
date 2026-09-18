@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file. This projec
 
 ---
 
+## [2.13.2] - 2026-09-18
+
+### ✨ Added
+- feat: 新增 GPT5.6-5.5 破限子模块
+- feat: 新增 aipocket 子模块 + 破限工具新增 5 项
+- feat: 新增 Zcode 分类子模块 Zcode2Api
+- feat: 新增 GLM (Mistral Console 反向代理) 并接入自动目录树
+- feat: 新增穿甲破限工具 (NERV-BREAK-5.6 / ctf-sandbox / Claude 指令模板)
+
+### 🔧 Fixed
+- fix(ci): 修复发行工作流被孤儿 tag 卡死
+- fix(docs): 目录树包分类注释改用 dir-mappings 描述
+
+
 ## [2.13.1] - 2026-09-18
 
 ### ✨ Added
