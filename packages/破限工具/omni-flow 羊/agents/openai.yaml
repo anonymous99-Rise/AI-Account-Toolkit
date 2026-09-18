@@ -1,0 +1,10 @@
+interface:
+  display_name: "羊 · 全域技能路由"
+  short_description: "按目标与任务类型匹配最具体的安全研究技能"
+  icon_small: "./assets/omni-flow-small.svg"
+  icon_large: "./assets/omni-flow-large.svg"
+  brand_color: "#0F766E"
+  default_prompt: "Use $omni-flow to activate routing, prefix active replies with 【omni-flow: active】, classify my target and intent, select the most specific installed skill, and execute the authorized research workflow until reset."
+
+policy:
+  allow_implicit_invocation: true

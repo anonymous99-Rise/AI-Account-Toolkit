@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file. This projec
 
 ---
 
+## [2.13.0] - 2026-09-18
+
+### ✨ Added
+- **aipocket** (`packages/general/aipocket`): 新增子模块 —— AI 基础设施暴露面与泄露凭证发现平台（Rust 2024 workspace + Axum + React 19 + PostgreSQL 16 / Redis 7，Docker 一键部署）。
+  - FOFA / Shodan / GitHub Artifact Hunter 多源发现，多 key 轮询
+  - 风险门控 + 并发验证（`VALIDATE_CONCURRENCY`）、余额查询、AI CVE 同步（Tavily）
+  - Web UI + JWT 鉴权 + SSE 实时扫描管理；高价值 key 跨 run 累积去重，PostgreSQL 为持久化真源
+- **omni-flow 羊** (`packages/破限工具/omni-flow 羊`): 全域安全研究 skill 路由器（`SKILL.md` + 20 个 references + 3 个脚本），按任务匹配最贴切的已装技能。
+- **grok4.6-小码酱.md** (`packages/破限工具`): Grok 4.6 破限指令（小码酱 persona 版）。
+- **富江codex全破 GPT6全破.zip** (`packages/破限工具`): Codex / GPT-6 破限合集（多语言变体 + PowerShell 一键安装脚本）。
+- **Web与AI安全测试skill.zip** (`packages/破限工具`): Web 与 AI 安全测试 skill 包（secknowledge-skill）。
+- **教学文档.zip** (`packages/破限工具`): 逆向教学 10 步流程文档。
+
+### 📝 Documentation
+- README:「逆向与通用工具」表新增 aipocket，「破限工具」表新增 5 个条目，子模块计数 47 → 48，版本升至 v2.13.0。
+- `docs/dir-mappings.json`: 新增 `omni-flow 羊` 的目录树描述。
+
+---
+
 ## [2.12.2] - 2026-09-18
 
 ### ✨ Added

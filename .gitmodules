@@ -139,3 +139,6 @@
 [submodule "packages/Zcode/Zcode2Api"]
 	path = packages/Zcode/Zcode2Api
 	url = https://github.com/D3-vin/Zcode2Api.git
+[submodule "packages/general/aipocket"]
+	path = packages/general/aipocket
+	url = https://github.com/k1ngbanana/aipocket.git

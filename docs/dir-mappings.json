@@ -153,6 +153,9 @@
     },
     "ReiPenFlow": {
       "desc": "ReiPenFlow 渗透工作流"
+    },
+    "omni-flow 羊": {
+      "desc": "omni-flow 全域安全研究 skill 路由器"
     }
   }
 }

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" role="img" aria-label="Omni Flow">
+  <defs>
+    <linearGradient id="g" x1="48" y1="48" x2="208" y2="208" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#14B8A6"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(128 128) rotate(90) scale(96)">
+      <stop stop-color="#99F6E4" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#99F6E4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="128" cy="128" r="104" fill="url(#glow)"/>
+  <circle cx="128" cy="128" r="96" fill="url(#g)" opacity="0.14"/>
+  <circle cx="128" cy="128" r="86" stroke="#0F766E" stroke-width="10"/>
+  <circle cx="128" cy="128" r="50" stroke="#0F766E" stroke-width="6" opacity="0.85"/>
+  <path d="M128 42l32 32v64l-32 32-32-32V74z" fill="#0F766E"/>
+  <path d="M128 60l46 46" stroke="#F59E0B" stroke-width="8" stroke-linecap="round"/>
+  <path d="M58 128h28M170 128h28M128 58v28M128 170v28" stroke="#0F766E" stroke-width="8" stroke-linecap="round" opacity="0.55"/>
+</svg>

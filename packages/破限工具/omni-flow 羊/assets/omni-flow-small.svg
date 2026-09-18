@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Omni Flow">
+  <defs>
+    <linearGradient id="g" x1="12" y1="12" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#14B8A6"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="28" fill="url(#g)" opacity="0.14"/>
+  <circle cx="32" cy="32" r="24" stroke="#0F766E" stroke-width="3"/>
+  <circle cx="32" cy="32" r="14" stroke="#0F766E" stroke-width="2" opacity="0.85"/>
+  <path d="M32 15l9 9v16l-9 9-9-9V24z" fill="#0F766E"/>
+  <path d="M32 20l12 12" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+  <path d="M13 32h10M41 32h10M32 13v10M32 41v10" stroke="#0F766E" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+</svg>

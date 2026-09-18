@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="License: MIT"></a>
-  <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/releases"><img src="https://img.shields.io/badge/Version-2.12.2-orange.svg?style=flat-square" alt="Version"></a>
+  <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/releases"><img src="https://img.shields.io/badge/Version-2.13.0-orange.svg?style=flat-square" alt="Version"></a>
   <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/stargazers"><img src="https://img.shields.io/github/stars/anonymous99-Rise/AI-Account-Toolkit?style=flat-square&color=gold" alt="GitHub stars"></a>
   <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/commits/main"><img src="https://img.shields.io/github/last-commit/anonymous99-Rise/AI-Account-Toolkit?style=flat-square" alt="GitHub last commit"></a>
 </p>
@@ -122,6 +122,7 @@ AI-Account-Toolkit/
 | **[mregister](packages/general/mregister/README.md)** | 多平台注册管理器。 |
 | **[real-random-taxfree-address](packages/general/real-random-taxfree-address/README.md)** | 生成真实随机免税地址。 |
 | **[gopay-plus-auto](packages/general/gopay-plus-auto/README.md)** | GoPay Plus 自动注册与充值工具。 |
+| **[aipocket](packages/general/aipocket/README.md)** | AI 基础设施暴露面与泄露凭证发现平台：FOFA / Shodan / GitHub Artifact Hunter 多源发现 → 归因 → 并发验证 → 余额查询与持久化（Rust 2024 workspace + React 19 + PostgreSQL 16 / Redis 7，Docker 一键部署）。 |
 
 ### 📜 Codex 模块 (packages/codex)
 
@@ -198,6 +199,11 @@ AI-Account-Toolkit/
 | **ctf-sandbox** | 小刘破甲：针对 gpt-5.6-sol / gpt-5.5 的 Codex CLI 破限提示词与一键部署（deploy / ask / check）。 |
 | **MD** | Claude 端 `CLAUDE.md` 破限指令模板（云技能 `$l-*` 加载 + W-License 流程）。 |
 | **小钻风破甲.7z** | 穿甲破限合集归档（Git LFS 跟踪）。 |
+| **omni-flow 羊** | 全域安全研究 skill 路由器：按任务自动匹配最贴切的已装技能（二进制 / Web·API / 移动 / 云 / 身份 / 密码学 / 固件 / 恶意代码 / 流量 / 本地 CTF），附启动、路由、报告与分域 playbook。 |
+| **grok4.6-小码酱.md** | Grok 4.6 破限指令（小码酱 persona 版）。 |
+| **富江codex全破 GPT6全破.zip** | Codex / GPT-6 破限合集：多语言变体提示词 + PowerShell 一键安装脚本。 |
+| **Web与AI安全测试skill.zip** | Web 与 AI 安全测试 skill 包（secknowledge-skill，含 git 历史）。 |
+| **教学文档.zip** | 逆向教学文档合集：二进制识别 → Ghidra 分析 → 关键函数定位 → 加密函数/节点配置解密 → 抓包与 WebSocket 测试的 10 步流程。 |
 
 ---
 
@@ -262,7 +268,7 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 
 ---
 
-## 📋 子模块列表 (共 47 个)
+## 📋 子模块列表 (共 48 个)
 
 | 分类 | 路径 | 核心功能 |
 | :--- | :--- | :--- |
@@ -274,7 +280,7 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 | **Grok** | `packages/grok/`, `grokRegister-cpa/` | x.ai 批量注册机、分类面板、CLI/协议转换、CPA 入库 |
 | **NVIDIA** | `packages/nvidia/` | NVIDIA 账号自动注册 |
 | **Zcode** | `packages/Zcode/` | Z.AI (ZCode) 反向代理、号池轮换、故障切换、验证码识别 |
-| **General** | `packages/general/` | **gpt4free**, 注册聚合, 支付自动化, 免税地址生成 |
+| **General** | `packages/general/` | **gpt4free**, **aipocket**, 注册聚合, 支付自动化, 免税地址生成 |
 
 ---
 
