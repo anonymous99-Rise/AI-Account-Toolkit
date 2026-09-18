@@ -65,14 +65,14 @@ AI-Account-Toolkit/
     ├── 📧 email/              # 核心注册与 API 兼容层
     └── 🛠️ general/              # 核心注册与 API 兼容层
     │   └── 🛠️ 破限工具/             # 破限工具集合
-    │       ├── 📂 5.6-JAILBREAK-NERV-codex-instruct-5.6-main/  # 5.6-JAILBREAK-NERV-codex-instruct-5.6-main
-    │       ├── 📂 dsh/  # dsh
-    │       ├── 📂 gpt-5.6-instruct/  # gpt-5.6-instruct
+    │       ├── 📂 5.6-JAILBREAK-NERV-codex-instruct-5.6-main/  # NERV-BREAK-5.6 破限框架 (MCP Server + 代理中继 + 28 技能包)
+    │       ├── 📂 dsh/  # DSH 破限 / 渗透 profiles
+    │       ├── 📂 gpt-5.6-instruct/  # GPT-5.6 Instruct 破限工具
     │       ├── 📂 Claude code/  # Claude Code 破限工具
-    │       ├── 📂 open-reverselab/  # open-reverselab
-    │       ├── 📂 MD/  # MD
-    │       ├── 📂 ctf-sandbox/  # ctf-sandbox
-    │       ├── 📂 ReiPenFlow/  # ReiPenFlow
+    │       ├── 📂 open-reverselab/  # Open-Reverselab 逆向实验台
+    │       ├── 📂 MD/  # Claude CLAUDE.md 破限指令模板
+    │       ├── 📂 ctf-sandbox/  # 小刘破甲 (Codex CLI 破限提示词 + 一键部署)
+    │       ├── 📂 ReiPenFlow/  # ReiPenFlow 渗透工作流
     │       ├── 📂 grok/  # Grok 破限工具
     │       └── 📂 codex/  # Codex 破限工具
 ```
