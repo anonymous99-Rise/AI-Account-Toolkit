@@ -37,20 +37,32 @@ jobs:
       - name: Get latest version
         id: get_version
         run: |
-          latest_tag=$(git describe --tags --abbrev=0 2>/dev/null)
-          if [[ -z "$latest_tag" ]]; then
-            echo "No tags found, using v2.5.0 as base"
-            latest_tag="v2.5.0"
-            echo "has_previous_tag=false" >> $GITHUB_OUTPUT
-          else
-            echo "Latest tag: $latest_tag"
+          # 版本基准 = max(最高已存在 tag, README 里的版本徽章)
+          # 不用 git describe：它只看「从 HEAD 可达」的 tag，历史被重写后残留的孤儿 tag
+          # 会让基准回退到旧版本，进而反复算出同一个已被占用的版本号，发行步骤被永久跳过。
+          tag_version=$(git tag -l 'v*' | sed 's/^v//' | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -n1)
+          badge_version=$(grep -oE 'Version-[0-9]+\.[0-9]+\.[0-9]+' README.md | head -n1 | sed 's/Version-//')
+
+          if [ -z "$tag_version" ]; then
+            tag_version="2.5.0"
+          fi
+          if [ -z "$badge_version" ]; then
+            badge_version="0.0.0"
+          fi
+
+          base_version=$(printf '%s\n%s\n' "$tag_version" "$badge_version" | sort -V | tail -n1)
+          latest_tag="v${base_version}"
+          echo "Highest tag: $tag_version | README badge: $badge_version | Base: $latest_tag"
+
+          if git rev-parse "$latest_tag" >/dev/null 2>&1; then
             echo "has_previous_tag=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_previous_tag=false" >> $GITHUB_OUTPUT
           fi
           echo "latest_tag=$latest_tag" >> $GITHUB_OUTPUT
 
           # Extract version numbers
-          version=${latest_tag#v}
-          IFS='.' read -r major minor patch <<< "$version"
+          IFS='.' read -r major minor patch <<< "$base_version"
           echo "Current version: $major.$minor.$patch"
           echo "major=$major" >> $GITHUB_OUTPUT
           echo "minor=$minor" >> $GITHUB_OUTPUT
@@ -86,20 +98,30 @@ jobs:
           patch=${{ steps.get_version.outputs.patch }}
           bump_type=${{ steps.bump_type.outputs.bump_type }}
 
-          case $bump_type in
-            major)
-              major=$((major + 1))
-              minor=0
-              patch=0
-              ;;
-            minor)
-              minor=$((minor + 1))
-              patch=0
-              ;;
-            patch)
-              patch=$((patch + 1))
-              ;;
-          esac
+          bump() {
+            case "$bump_type" in
+              major)
+                major=$((major + 1))
+                minor=0
+                patch=0
+                ;;
+              minor)
+                minor=$((minor + 1))
+                patch=0
+                ;;
+              *)
+                patch=$((patch + 1))
+                ;;
+            esac
+          }
+
+          bump
+          # 版本名被任何 ref 占用就按同一语义继续抬高
+          # （含历史重写遗留、当前分支引用不到的孤儿 tag，避免发行被永久跳过）
+          while git rev-parse "v${major}.${minor}.${patch}" >/dev/null 2>&1; do
+            echo "v${major}.${minor}.${patch} 已被占用，继续 bump"
+            bump
+          done
 
           new_version="v${major}.${minor}.${patch}"
           echo "New version: $new_version"
@@ -110,7 +132,7 @@ jobs:
         run: |
           new_version=${{ steps.new_version.outputs.new_version }}
           if git rev-parse "$new_version" >/dev/null 2>&1; then
-            echo "Release $new_version already exists"
+            echo "::error:: $new_version 仍被占用（并发发行？跳过本次）"
             echo "should_release=false" >> $GITHUB_OUTPUT
           else
             echo "Release $new_version does not exist"
@@ -142,35 +164,40 @@ jobs:
           latest_tag=${{ steps.get_version.outputs.latest_tag }}
           has_previous_tag=${{ steps.get_version.outputs.has_previous_tag }}
 
-          if [[ "$has_previous_tag" == "true" ]]; then
-            commits=$(git log ${latest_tag}..HEAD --pretty=format:"%s")
+          # 基准 tag 必须同时是 HEAD 的祖先，否则 git log range 会把整部历史都算进来
+          if [[ "$has_previous_tag" == "true" ]] && git merge-base --is-ancestor "$latest_tag" HEAD 2>/dev/null; then
+            commits=$(git log "${latest_tag}..HEAD" --pretty=format:"%s")
           else
-            # No previous tag — get all commits from history
-            commits=$(git log --pretty=format:"%s")
+            commits=$(git log --pretty=format:"%s" --max-count=30)
           fi
 
-          # Prepare new changelog entry
-          new_entry="## [${new_version#v}] - ${current_date}\n\n"
-          new_entry+="### ✨ Added\n"
-          echo "$commits" | grep -i "^feat" || true | while read line; do
-            new_entry+="- ${line}\n"
-          done
-          new_entry+="\n### 🔧 Fixed\n"
-          echo "$commits" | grep -i "^fix" || true | while read line; do
-            new_entry+="- ${line}\n"
-          done
+          # 写入文件再插入：原来的 `grep | while read` 在管道子 shell 里改变量，条目会丢
+          {
+            echo "## [${new_version#v}] - ${current_date}"
+            echo ""
+            echo "### ✨ Added"
+            echo "$commits" | grep -i "^feat" | sed 's/^/- /' || true
+            echo ""
+            echo "### 🔧 Fixed"
+            echo "$commits" | grep -i "^fix" | sed 's/^/- /' || true
+            echo ""
+          } > CHANGELOG.entry
 
           # Insert new entry after the header
-          awk -v entry="$new_entry" '
+          awk -v entryfile=CHANGELOG.entry '
             /^---$/ && !header_done {
               print
               print ""
-              print entry
+              while ((getline line < entryfile) > 0) {
+                print line
+              }
+              close(entryfile)
               header_done=1
               next
             }
             { print }
           ' CHANGELOG.md > CHANGELOG.tmp && mv CHANGELOG.tmp CHANGELOG.md
+          rm -f CHANGELOG.entry
 
           git add CHANGELOG.md
 
@@ -185,7 +212,10 @@ jobs:
         run: |
           new_version=${{ steps.new_version.outputs.new_version }}
           git tag -a "$new_version" -m "Release $new_version"
-          git push origin main --tags
+          # README 结构机器人可能刚推过提交：先 rebase 再分别推分支与 tag，避免被拒
+          git pull --rebase origin main || true
+          git push origin HEAD:main
+          git push origin "$new_version"
 
       - name: Create GitHub Release
         if: steps.check_release.outputs.should_release == 'true'
