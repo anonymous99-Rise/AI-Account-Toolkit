@@ -62,19 +62,18 @@ AI-Account-Toolkit/
     ├── 🐦 grok/              # 核心注册与 API 兼容层
     ├── 🔱 nvidia/              # 核心注册与 API 兼容层
     ├── 📧 email/              # 核心注册与 API 兼容层
-    ├── 🛠️ general/              # 核心注册与 API 兼容层
-    └── 🔓 破限工具/             # 穿甲破限工具集合
-        ├── 📂 gpt-5.6-instruct/  # gpt-5.6-instruct
-        ├── 📂 codex/  # Codex 破限工具
-        ├── 📂 Claude code/  # Claude Code 破限工具
-        ├── 📂 dsh/  # dsh (dsh-purge / dsh-pentest)
-        ├── 📂 open-reverselab/  # open-reverselab
-        ├── 📂 grok/  # Grok 破限工具
-        ├── 📂 ReiPenFlow/  # ReiPenFlow
-        ├── 📂 5.6-JAILBREAK-NERV-codex-instruct-5.6-main/  # NERV-BREAK-5.6 破限框架
-        ├── 📂 ctf-sandbox/  # 小刘破甲 (Codex CLI 破限 + 一键部署)
-        ├── 📂 MD/  # Claude CLAUDE.md 破限指令模板
-        └── 📦 小钻风破甲.7z  # 穿甲破限合集归档 (Git LFS)
+    └── 🛠️ general/              # 核心注册与 API 兼容层
+    │   └── 🛠️ 破限工具/             # 破限工具集合
+    │       ├── 📂 5.6-JAILBREAK-NERV-codex-instruct-5.6-main/  # 5.6-JAILBREAK-NERV-codex-instruct-5.6-main
+    │       ├── 📂 dsh/  # dsh
+    │       ├── 📂 gpt-5.6-instruct/  # gpt-5.6-instruct
+    │       ├── 📂 Claude code/  # Claude Code 破限工具
+    │       ├── 📂 open-reverselab/  # open-reverselab
+    │       ├── 📂 MD/  # MD
+    │       ├── 📂 ctf-sandbox/  # ctf-sandbox
+    │       ├── 📂 ReiPenFlow/  # ReiPenFlow
+    │       ├── 📂 grok/  # Grok 破限工具
+    │       └── 📂 codex/  # Codex 破限工具
 ```
 
 ---
