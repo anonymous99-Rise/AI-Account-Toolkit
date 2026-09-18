@@ -99,10 +99,11 @@ jobs:
               for item in packages_lines:
                   if len(item) == 3:
                       emoji, label, not_last = item
-                      f.write(f"PKG|{label}|{emoji}|{'/yn' if not_last else '/yn'}|NO_CHILDREN\n")
+                      desc = packages_map.get(label, {}).get('desc', '核心注册与 API 兼容层')
+                      f.write(f"PKG|{label}|{emoji}|/yn|NO_CHILDREN|{desc}\n")
                   else:
                       emoji, label, not_last, children = item
-                      f.write(f"PKG|{label}|{emoji}|{'/yn' if not_last else '/yn'}|HAS_CHILDREN\n")
+                      f.write(f"PKG|{label}|{emoji}|/yn|HAS_CHILDREN|破限工具集合\n")
                       for child_name, child_desc in children:
                           f.write(f"CHILD|{child_name}|{child_desc}\n")
 
@@ -120,6 +121,7 @@ jobs:
 
           root_entries = []
           pkg_entries = []
+          pkg_desc_map = {}
           child_entries = {}
           current_pkg = None
           in_package_section = False
@@ -134,8 +136,9 @@ jobs:
                   _, name, emoji, desc = parts
                   root_entries.append((name, emoji, desc))
               elif parts[0] == 'PKG':
-                  _, name, emoji, not_last, has_children = parts
+                  _, name, emoji, not_last, has_children, pkg_desc = parts
                   pkg_entries.append((name, emoji, not_last == '/yn', has_children == 'HAS_CHILDREN'))
+                  pkg_desc_map[name] = pkg_desc
                   current_pkg = name
               elif parts[0] == 'CHILD':
                   _, name, desc = parts
@@ -171,8 +174,9 @@ jobs:
               if name not in name_to_pkg:
                   continue
               emoji, has_children = name_to_pkg[name]
+              desc = pkg_desc_map.get(name, '核心注册与 API 兼容层')
               prefix = "    ├──" if i < last_idx else "    └──"
-              output.append(f"{prefix} {emoji} {name}/              # 核心注册与 API 兼容层")
+              output.append(f"{prefix} {emoji} {name}/              # {desc}")
 
           # 破限工具
           if '破限工具' in [n for n, e, nl, hc in pkg_entries]:

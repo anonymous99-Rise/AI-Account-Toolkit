@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ### 📝 Documentation
 - README 新增「🧩 Zcode 模块」导航小节与子模块列表条目，目录树渲染顺序接入 `Zcode`（`docs/dir-mappings.json` + `readme-structure.yml`），子模块计数 38 → 47，版本升至 v2.12.2。
+- `readme-structure.yml`：`packages/*` 分类的目录树注释改为读取 `dir-mappings.json` 的 `packages` 描述（原先硬编码为「核心注册与 API 兼容层」），各分类说明现在正确显示。
 
 ---
 
