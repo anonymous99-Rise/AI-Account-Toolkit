@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="License: MIT"></a>
-  <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/releases"><img src="https://img.shields.io/badge/Version-2.12.0-orange.svg?style=flat-square" alt="Version"></a>
+  <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/releases"><img src="https://img.shields.io/badge/Version-2.12.1-orange.svg?style=flat-square" alt="Version"></a>
   <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/stargazers"><img src="https://img.shields.io/github/stars/anonymous99-Rise/AI-Account-Toolkit?style=flat-square&color=gold" alt="GitHub stars"></a>
   <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/commits/main"><img src="https://img.shields.io/github/last-commit/anonymous99-Rise/AI-Account-Toolkit?style=flat-square" alt="GitHub last commit"></a>
 </p>
@@ -53,6 +53,7 @@ AI-Account-Toolkit/
 ├── 📂 ob12api/                # OB12 API 服务
 ├── 📂 chatgpt_register_duckmail/                # ChatGPT + DuckMail 注册方案
 ├── 📂 FreeSMS/                # 免费短信接收服务
+├── 📂 GLM/                # Mistral Console 反向代理 (OpenAI 兼容 API + Web UI)
 └── 📂 packages/                # 模块化子模块 (Submodules)
     ├── 🤖 openai/              # 核心注册与 API 兼容层
     ├── ⚔️ claude/              # 核心注册与 API 兼容层
@@ -91,6 +92,7 @@ AI-Account-Toolkit/
 | **team-all-in-one** | 可视化注册管理系统，支持多邮箱源、代理轮换及 Token 导出。 | [README](team_all-in-one/README.md) |
 | **OpenAI Orchestrator** | 自动化维护账号池，支持 Token 状态监控与多平台分发。 | [V6 README](openai_pool_orchestrator-V6/README.md) |
 | **gpt-outlook-register** | 基于 Outlook 的 ChatGPT 账号自动注册，支持短信验证与指纹管理。 | [README](gpt-outlook-register/README.md) |
+| **GLM** | Mistral Console 反向代理（Go）：OpenAI 兼容 API、多上游 key 轮询与失败冷却切换、Playground 风格 Web UI、Docker 一键部署。 | [README](GLM/data/README.md) |
 
 ### 🤖 OpenAI 模块 (packages/openai)
 

@@ -1,0 +1,17 @@
+# 数据与运行时状态（通过 volume 挂载，不进镜像）
+data/
+
+# 本地构建产物 / Windows 二进制
+*.exe
+flex-mistral.exe
+
+# 日志
+*.log
+boot-*.log
+server-*.log
+
+# 版本控制
+.git
+
+# 密钥环境文件（绝不进镜像）
+.env

@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file. This projec
 
 ---
 
+## [2.12.1] - 2026-09-18
+
+### ✨ Added
+- **GLM** (`GLM/data`): Mistral Console 反向代理（Go 实现）。
+  - `POST /v1/chat/completions` OpenAI 兼容，支持非流式与 `stream=true` SSE
+  - 模型名自动映射（`glm-5.2` / `zai-glm-5-2` 等变体 → `glm-5-2`），默认注入 Playground 系统提示词与工具（`code_interpreter` / `image_generation` / `web_search`）
+  - 多上游 key 轮询 + 失败状态码冷却切换（401/402 长冷却、429/5xx 短冷却），持久化到 `data/keys.json`
+  - 本地鉴权（`X-API-Key` / `Authorization: Bearer` / `?api_key=` 三选一）、Playground 风格 Web UI、会话查询
+  - 提供 `Dockerfile` / `docker-compose.yml` / `.env.example`，支持 Docker 一键部署
+
+### 📝 Documentation
+- README 根目录工具树与导航表补充 GLM 条目，版本升至 v2.12.1。
+- 更新 `docs/dir-mappings.json`：补充 GLM 根目录映射，以及破限工具新增子目录（NERV-BREAK-5.6 / ctf-sandbox / MD / dsh / gpt-5.6-instruct / open-reverselab / ReiPenFlow）的中文描述。
+- `readme-structure.yml`：自动目录树的根目录渲染顺序加入 `GLM`，避免下次自动生成时条目被丢弃。
+
+---
+
 ## [2.12.0] - 2026-09-18
 
 ### ✨ Added

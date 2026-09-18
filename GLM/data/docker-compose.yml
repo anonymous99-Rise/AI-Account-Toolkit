@@ -1,0 +1,24 @@
+services:
+  mistral-proxy:
+    build:
+      context: ./build
+      dockerfile: Dockerfile.runtime
+    container_name: mistral-proxy
+    ports:
+      - "38467:38467"
+    environment:
+      PORT: "38467"
+      HOST: "0.0.0.0"
+      ADMIN_PASSWORD: "${ADMIN_PASSWORD:-}"
+      UPSTREAM_API_KEY: "${UPSTREAM_API_KEY:-}"
+      UPSTREAM_API_KEYS: "${UPSTREAM_API_KEYS:-}"
+      LOCAL_API_KEYS: "${LOCAL_API_KEYS:-}"
+      UPSTREAM_BASE_URL: "https://api.mistral.ai/v1"
+      DATA_DIR: "/data"
+      INJECT_PLAYGROUND_TOOLS: "true"
+      HTTP_TIMEOUT_SECONDS: "${HTTP_TIMEOUT_SECONDS:-1800}"
+      DEFAULT_REASONING_EFFORT: "${DEFAULT_REASONING_EFFORT:-none}"
+      MAX_UPSTREAM_RETRIES: "${MAX_UPSTREAM_RETRIES:-1}"
+    volumes:
+      - /opt/mistral-proxy/data:/data
+    restart: unless-stopped

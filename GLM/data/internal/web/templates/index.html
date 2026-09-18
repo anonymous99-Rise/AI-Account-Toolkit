@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{.Name}}</title>
+<link rel="stylesheet" href="/static/styles.css?v=20260816j">
+</head>
+<body>
+<div class="bg-grid"></div>
+
+{{if .NoAdminPassword}}
+<div class="warn-banner">⚠ 管理界面未启用密码保护（ADMIN_PASSWORD 未设置）。本服务暴露在 0.0.0.0，建议设置 ADMIN_PASSWORD 防止被扫描器直接访问。</div>
+{{end}}
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">⌁</span>
+    <div>
+      <h1>{{.Name}}</h1>
+      <p class="sub">Mistral Playground → 本地 OpenAI 兼容 API · 多账号 · 工具调用 · 协议转换</p>
+    </div>
+  </div>
+  <div class="top-status">
+    <span id="healthDot" class="dot"></span>
+    <span id="healthText">checking…</span>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab-btn active" data-tab="playground" type="button">对话 Playground</button>
+  <button class="tab-btn" data-tab="accounts" type="button">账号管理</button>
+  <button class="tab-btn" data-tab="settings" type="button">系统设置</button>
+</nav>
+
+<main class="layout">
+
+  <!-- ===================== Tab 1: 对话 Playground ===================== -->
+  <section id="tab-playground" class="tab-panel active">
+    <aside class="rail">
+      <section class="panel controls reveal d1">
+        <h2>模型与采样</h2>
+        <label>模型
+          <select id="model">
+            <option value="glm-5-2" selected>glm-5-2</option>
+            <option value="mistral-medium-latest">mistral-medium-latest</option>
+            <option value="mistral-large-latest">mistral-large-latest</option>
+          </select>
+        </label>
+        <label>temperature <output id="tempVal">0.7</output>
+          <input type="range" id="temperature" min="0" max="1" step="0.05" value="0.7">
+          <span class="muted small">GLM 只接受 0~1，超限上游 422</span>
+        </label>
+        <label>top_p <output id="toppVal">1.0</output>
+          <input type="range" id="top_p" min="0" max="1" step="0.05" value="1">
+        </label>
+        <label>max_tokens
+          <input type="number" id="max_tokens" min="1" max="1048576" value="4096">
+        </label>
+        <label>reasoning_effort（思考等级）
+          <select id="reasoning_effort">
+            <option value="none" selected>none（最快）</option>
+            <option value="low">low</option>
+            <option value="medium">medium</option>
+            <option value="high">high（深度思考，慢）</option>
+            <option value="max">max</option>
+            <option value="xhigh">xhigh</option>
+          </select>
+          <span class="muted small">Claude Code 等客户端传任意等级都会自动映射到 none/high</span>
+        </label>
+        <fieldset class="tools">
+          <legend>工具（tools）</legend>
+          <label class="chk"><input type="checkbox" id="tool_code" checked> code_interpreter <span class="muted small">运行代码/沙箱</span></label>
+          <label class="chk"><input type="checkbox" id="tool_image" checked> image_generation <span class="muted small">按描述生成图片</span></label>
+          <label class="chk"><input type="checkbox" id="tool_search" checked> web_search <span class="muted small">联网搜索</span></label>
+          <label class="chk"><input type="checkbox" id="tool_local" checked> 本地文件工具 <span class="muted small">read/write/append/list</span></label>
+        </fieldset>
+      </section>
+
+      <section class="panel syspanel reveal d2">
+        <h2>系统提示词 <button id="resetSys" class="mini" type="button">重置默认</button></h2>
+        <textarea id="system" spellcheck="false" placeholder="留空则使用代理默认注入的系统提示词"></textarea>
+      </section>
+
+      <section class="panel keypanel reveal d3">
+        <h2>本地 API Key</h2>
+        <input type="password" id="apiKey" placeholder="粘贴本地 key，回车或点保存" autocomplete="off">
+        <div class="row">
+          <button id="saveKey" class="mini" type="button">保存</button>
+          <button id="showKeys" class="mini" type="button">Key 池状态</button>
+        </div>
+      </section>
+    </aside>
+
+    <section class="chat">
+      <div id="messages" class="messages">
+        <div class="hint">输入消息开始对话。左侧可切换模型、采样参数与工具；系统提示词默认来自代理配置，可编辑。</div>
+      </div>
+      <div class="composer">
+        <textarea id="input" rows="3" placeholder="输入消息，Enter 发送，Shift+Enter 换行"></textarea>
+        <div class="composer-row">
+          <button id="newConv" class="mini" type="button" title="开启全新会话">新会话</button>
+          <span id="convStatus" class="muted small"></span>
+          <button id="send" type="button">发送</button>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ===================== Tab 2: 账号管理 ===================== -->
+  <section id="tab-accounts" class="tab-panel">
+    <div class="acct-layout">
+      <aside class="rail">
+        <section class="panel">
+          <h2>账号列表</h2>
+          <div class="row">
+            <input id="newAccName" placeholder="账号名，如 YG 主号" autocomplete="off">
+            <select id="newAccModel">
+              <option value="glm-5-2">glm-5-2</option>
+              <option value="mistral-medium-latest">mistral-medium-latest</option>
+              <option value="mistral-large-latest">mistral-large-latest</option>
+            </select>
+            <button id="newAccBtn" class="mini" type="button">新建</button>
+          </div>
+          <div class="batch-box">
+            <div class="batch-row">
+              <input type="number" id="batchCount" min="1" max="100" value="3" title="数量">
+              <select id="batchModel">
+                <option value="glm-5-2">glm-5-2</option>
+                <option value="mistral-medium-latest">mistral-medium-latest</option>
+                <option value="mistral-large-latest">mistral-large-latest</option>
+              </select>
+              <input id="batchPrefix" placeholder="前缀，如 批量号" autocomplete="off">
+            </div>
+            <div class="batch-row">
+              <label class="chk"><input type="checkbox" id="batchGreet" checked> 创建后打招呼建会话</label>
+              <button id="batchBtn" class="mini" type="button">批量注册</button>
+            </div>
+            <div id="batchStatus" class="muted">批量注册 N 个独立账号，可选创建后发问候建立会话（并发 3）</div>
+          </div>
+          <div id="acctList" class="acct-list"></div>
+        </section>
+        <section class="panel">
+          <h2>账号采样参数</h2>
+          <label>temperature <output id="accTempVal">0.7</output>
+            <input type="range" id="accTemperature" min="0" max="1" step="0.05" value="0.7">
+            <span class="muted small">GLM 只接受 0~1</span>
+          </label>
+          <label>top_p <output id="accToppVal">1.0</output>
+            <input type="range" id="accTopP" min="0" max="1" step="0.05" value="1">
+          </label>
+          <label>max_tokens
+            <input type="number" id="accMaxTokens" min="1" max="1048576" value="4096">
+          </label>
+          <label>reasoning_effort
+            <select id="accReasoning">
+              <option value="none" selected>none（最快）</option>
+              <option value="low">low</option>
+              <option value="medium">medium</option>
+              <option value="high">high（深度思考）</option>
+              <option value="max">max</option>
+              <option value="xhigh">xhigh</option>
+            </select>
+            <span class="muted small">任意等级自动映射到 none/high</span>
+          </label>
+          <label>账号系统提示词
+            <textarea id="accSystem" rows="5" spellcheck="false" placeholder="留空用默认"></textarea>
+          </label>
+          <fieldset class="tools">
+            <legend>账号工具</legend>
+            <label class="chk"><input type="checkbox" id="accToolCode" checked> code_interpreter</label>
+            <label class="chk"><input type="checkbox" id="accToolImage" checked> image_generation</label>
+            <label class="chk"><input type="checkbox" id="accToolSearch" checked> web_search</label>
+          </fieldset>
+          <div class="row">
+            <button id="accApplyParams" class="mini" type="button">保存参数</button>
+            <button id="accDelete" class="mini danger" type="button">删除账号</button>
+          </div>
+        </section>
+      </aside>
+
+      <section class="chat">
+        <div class="acct-head">
+          <span id="acctTitle">未选择账号</span>
+          <span id="acctConv" class="muted"></span>
+        </div>
+        <div id="accMessages" class="messages">
+          <div class="hint">左侧选择账号后开始对话。每个账号是独立的 GLM 会话（conversation_id），多轮自动延续。</div>
+        </div>
+        <div class="composer">
+          <textarea id="accInput" rows="3" placeholder="向所选账号发消息"></textarea>
+          <button id="accSend" type="button">发送</button>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ===================== Tab 3: 系统设置 ===================== -->
+  <section id="tab-settings" class="tab-panel">
+    <div class="settings-grid">
+      <section class="panel">
+        <h2>上游 API Key 池</h2>
+        <p class="muted">这些 key 用于轮询转发到 Mistral 上游；多 key 自动轮询 + 失败冷却。</p>
+        <div class="row">
+          <input id="newUpstreamKey" placeholder="粘贴 Mistral API Key (sk-...)" autocomplete="off" style="flex:1">
+          <button id="addUpstreamKey" class="mini" type="button">添加</button>
+        </div>
+        <table class="kvtbl">
+          <thead><tr><th>状态</th><th>Key</th><th>来源</th><th>最近错误</th><th></th></tr></thead>
+          <tbody id="upstreamKeyRows"></tbody>
+        </table>
+      </section>
+
+      <section class="panel">
+        <h2>本地 API Key（对外出口）</h2>
+        <p class="muted">客户端对接本项目时使用的鉴权 key（多 key 均可访问）。</p>
+        <div id="localKeyList"></div>
+        <div class="row">
+          <input id="newLocalKey" placeholder="新增本地 key" autocomplete="off" style="flex:1">
+          <button id="addLocalKey" class="mini" type="button">添加</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>代理池</h2>
+        <p class="muted">上游出口代理（http/socks5/direct），健康检查自动剔除失效代理。</p>
+        <div class="row">
+          <input id="newProxyAddr" placeholder="host:port" style="flex:1">
+          <select id="newProxyType">
+            <option value="http">http</option>
+            <option value="socks5">socks5</option>
+          </select>
+          <button id="addProxy" class="mini" type="button">添加</button>
+          <button id="checkProxies" class="mini" type="button">检测</button>
+        </div>
+        <table class="kvtbl">
+          <thead><tr><th>地址</th><th>类型</th><th>延迟</th><th>状态</th><th></th></tr></thead>
+          <tbody id="proxyRows"></tbody>
+        </table>
+      </section>
+
+      <section class="panel">
+        <h2>默认配置</h2>
+        <label>全局默认系统提示词
+          <textarea id="globalSystem" rows="5" spellcheck="false" placeholder="默认注入的系统提示词"></textarea>
+        </label>
+        <div class="row">
+          <button id="saveGlobalSystem" class="mini" type="button">保存为默认提示词（写入文件）</button>
+          <button id="resetGlobalSystem" class="mini" type="button">恢复内置默认</button>
+        </div>
+        <p class="muted">保存后写入 <code>data/system_prompt.txt</code>，sub2api 等客户端请求不带 system 消息时自动注入此提示词。</p>
+      </section>
+    </div>
+  </section>
+</main>
+
+<div id="keyModal" class="modal hidden">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>本地 Key / 上游 Key 池</h3>
+      <button id="closeKeys" class="mini" type="button">关闭</button>
+    </div>
+    <p class="muted">本地 API Key（喂给任意 OpenAI 兼容客户端时使用）</p>
+    <pre id="localKeyRow2" class="mono codeblock">—</pre>
+    <p class="muted">上游 key 池状态（红色 = 冷却中/失败）</p>
+    <table class="kvtbl">
+      <thead><tr><th>状态</th><th>Key</th><th>来源</th><th>最近错误</th></tr></thead>
+      <tbody id="keyRows"></tbody>
+    </table>
+  </div>
+</div>
+
+<script src="/static/app.js?v=20260816j"></script>
+</body>
+</html>

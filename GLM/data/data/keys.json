@@ -1,0 +1,15 @@
+{
+  "upstream_keys": [
+    {
+      "key": "nAzh61qAuaMSoCk97tSbGIIkp9RxgyrL",
+      "source": "seed",
+      "added_at": "2026-08-16T00:00:00Z",
+      "healthy": true,
+      "cooldown_until": "0001-01-01T00:00:00Z"
+    }
+  ],
+  "local_keys": [
+    "f7a1c2d3e4b5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0",
+    "testkey123"
+  ]
+}

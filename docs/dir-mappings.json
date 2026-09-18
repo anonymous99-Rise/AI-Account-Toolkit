@@ -75,6 +75,10 @@
     "FreeSMS": {
       "emoji": "📂",
       "desc": "免费短信接收服务"
+    },
+    "GLM": {
+      "emoji": "📂",
+      "desc": "Mistral Console 反向代理 (OpenAI 兼容 API + Web UI)"
     }
   },
   "packages": {
@@ -124,6 +128,27 @@
     },
     "grok": {
       "desc": "Grok 破限工具"
+    },
+    "5.6-JAILBREAK-NERV-codex-instruct-5.6-main": {
+      "desc": "NERV-BREAK-5.6 破限框架 (MCP Server + 代理中继 + 28 技能包)"
+    },
+    "ctf-sandbox": {
+      "desc": "小刘破甲 (Codex CLI 破限提示词 + 一键部署)"
+    },
+    "MD": {
+      "desc": "Claude CLAUDE.md 破限指令模板"
+    },
+    "dsh": {
+      "desc": "DSH 破限 / 渗透 profiles"
+    },
+    "gpt-5.6-instruct": {
+      "desc": "GPT-5.6 Instruct 破限工具"
+    },
+    "open-reverselab": {
+      "desc": "Open-Reverselab 逆向实验台"
+    },
+    "ReiPenFlow": {
+      "desc": "ReiPenFlow 渗透工作流"
     }
   }
 }

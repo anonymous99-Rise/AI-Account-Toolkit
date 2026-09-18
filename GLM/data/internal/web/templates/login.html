@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>管理登录 · Mistral Console Proxy</title>
+<link rel="stylesheet" href="/static/styles.css?v=20260816e">
+</head>
+<body>
+<div class="bg-grid"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">⌁</span>
+    <div>
+      <h1>Mistral Console Proxy</h1>
+      <p class="sub">管理界面登录</p>
+    </div>
+  </div>
+  <div class="top-status"><span class="dot bad"></span><span>需要授权</span></div>
+</header>
+
+<div class="login-wrap">
+  <form class="login-box" method="post" action="/login">
+    <span class="logo">⌁</span>
+    <h1>管 理 登 录</h1>
+    <p class="muted">本服务暴露在 0.0.0.0，请输入管理员密码以进入管理界面。</p>
+    {{if .Error}}<p class="login-err">✕ {{.Error}}</p>{{end}}
+    <input type="password" name="password" placeholder="管理员密码" autofocus autocomplete="current-password">
+    <button type="submit">登 录</button>
+    {{if .NoAdminPassword}}<p class="muted" style="margin-top:6px">未设置管理员密码（ADMIN_PASSWORD），任意密码均可登录，建议尽快设置。</p>{{end}}
+  </form>
+</div>
+</body>
+</html>

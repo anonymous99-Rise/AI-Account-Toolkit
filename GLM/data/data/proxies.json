@@ -1,0 +1,22 @@
+[
+  {
+    "id": "eef0a65757497a7f",
+    "type": "socks5",
+    "addr": "43.160.211.153:19909",
+    "enabled": false,
+    "latency_ms": -1,
+    "last_check": "0001-01-01T00:00:00Z",
+    "failures": 0,
+    "added_at": "2026-08-16T15:05:08.7057794+08:00"
+  },
+  {
+    "id": "1f634f38c9e9109e",
+    "type": "http",
+    "addr": "127.0.0.1:10818",
+    "enabled": true,
+    "latency_ms": -1,
+    "last_check": "0001-01-01T00:00:00Z",
+    "failures": 0,
+    "added_at": "2026-08-16T15:05:08.7386972+08:00"
+  }
+]

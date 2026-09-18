@@ -152,7 +152,7 @@ jobs:
                          'codex-oauth-automation', 'codex-oauth-automation-extension', 'Extensions',
                          'freemail', 'openai_pool_orchestrator_v5', 'openai_pool_orchestrator-V6',
                          'ClashVerge_', 'gpt-outlook-register', 'Register_GPT_v0', 'mailhub',
-                         'merge-mailtm-share', 'ob12api', 'chatgpt_register_duckmail', 'FreeSMS']
+                         'merge-mailtm-share', 'ob12api', 'chatgpt_register_duckmail', 'FreeSMS', 'GLM']
 
           name_to_info = {name: (emoji, desc) for name, emoji, desc in root_entries}
           for name in fixed_order:
