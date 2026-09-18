@@ -142,3 +142,6 @@
 [submodule "packages/general/aipocket"]
 	path = packages/general/aipocket
 	url = https://github.com/k1ngbanana/aipocket.git
+[submodule "packages/破限工具/GPT5.6-5.5"]
+	path = packages/破限工具/GPT5.6-5.5
+	url = https://github.com/zxr-roro/GPT5.6-5.5-.git

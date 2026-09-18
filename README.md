@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="License: MIT"></a>
-  <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/releases"><img src="https://img.shields.io/badge/Version-2.13.0-orange.svg?style=flat-square" alt="Version"></a>
+  <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/releases"><img src="https://img.shields.io/badge/Version-2.13.1-orange.svg?style=flat-square" alt="Version"></a>
   <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/stargazers"><img src="https://img.shields.io/github/stars/anonymous99-Rise/AI-Account-Toolkit?style=flat-square&color=gold" alt="GitHub stars"></a>
   <a href="https://github.com/anonymous99-Rise/AI-Account-Toolkit/commits/main"><img src="https://img.shields.io/github/last-commit/anonymous99-Rise/AI-Account-Toolkit?style=flat-square" alt="GitHub last commit"></a>
 </p>
@@ -193,6 +193,7 @@ AI-Account-Toolkit/
 | **codex** | Codex 破限工具。 |
 | **ReiPenFlow** | ReiPenFlow 破限工具。 |
 | **gpt-5.6-instruct** | GPT-5.6-Instruct 破限工具。 |
+| **GPT5.6-5.5** | zzy 系列 GPT-5.6 / 5.5 Codex 破限与逆向 skill 合集（`game-hacking-techniques-SKILL.md` + `zzy-Codex-5.6` + `zzy-reverse-skill`）。 |
 | **open-reverselab** | Open-Reverselab 破限工具。 |
 | **dsh-purge** | DSH Purge 工具。 |
 | **dsh-pentest** | DeepSeek Harness 渗透测试模式 profiles。 |
@@ -269,7 +270,7 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 
 ---
 
-## 📋 子模块列表 (共 48 个)
+## 📋 子模块列表 (共 49 个)
 
 | 分类 | 路径 | 核心功能 |
 | :--- | :--- | :--- |

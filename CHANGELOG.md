@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file. This projec
 
 ---
 
+## [2.13.1] - 2026-09-18
+
+### ✨ Added
+- **GPT5.6-5.5** (`packages/破限工具/GPT5.6-5.5`): 新增子模块（上游 `https://github.com/zxr-roro/GPT5.6-5.5-`）—— zzy 系列 GPT-5.6 / 5.5 Codex 破限与逆向 skill 合集。
+  - `zzy-codex5.6/game-hacking-techniques-SKILL.md`：游戏逆向与内存修改技能包
+  - `zzy-codex5.6/zzy-Codex-5.6/`：Codex 5.6 破限配置
+  - `zzy-codex5.6/zzy-reverse-skill/`：逆向分析 skill 包
+  - 子模块路径去掉了上游仓库名的结尾连字符（`GPT5.6-5.5-` → `GPT5.6-5.5`）
+
+### 📝 Documentation
+- README:「破限工具」表新增 GPT5.6-5.5 条目，子模块计数 48 → 49，版本升至 v2.13.1。
+- `docs/dir-mappings.json`: 新增 `GPT5.6-5.5` 的目录树描述。
+
+---
+
 ## [2.13.0] - 2026-09-18
 
 ### ✨ Added

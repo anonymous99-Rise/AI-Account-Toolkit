@@ -156,6 +156,9 @@
     },
     "omni-flow 羊": {
       "desc": "omni-flow 全域安全研究 skill 路由器"
+    },
+    "GPT5.6-5.5": {
+      "desc": "GPT-5.6 / 5.5 Codex 破限与逆向 skill 合集"
     }
   }
 }
