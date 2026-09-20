@@ -145,3 +145,6 @@
 [submodule "packages/破限工具/GPT5.6-5.5"]
 	path = packages/破限工具/GPT5.6-5.5
 	url = https://github.com/zxr-roro/GPT5.6-5.5-.git
+[submodule "packages/openai/turb-gpt-free-register"]
+	path = packages/openai/turb-gpt-free-register
+	url = https://github.com/anonymous99-Rise/turb-gpt-free-register.git
