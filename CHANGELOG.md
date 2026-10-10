@@ -15,19 +15,6 @@ All notable changes to this project will be documented in this file. This projec
 - fix(ci): 修复发行工作流被孤儿 tag 卡死
 
 
-## [2.13.4] - 2026-10-09
-
-### ✨ Added
-- **gpt-instruct** (`packages/破限工具/gpt-instruct`): 新增子模块（上游 `https://github.com/MDX-Tom/gpt-instruct`）—— Codex 提示词与可复现评测工具链，含 `gpt-5.6-sol-v45`（稳定版）、`gpt-6-astra-v2-rc1`、`gpt-6.1-sol-v1-rc2` 三条提示词分支与 `codex-instruct.py`、A/B 基准脚本。
-  - 子模块路径沿用目录内既有 `gpt-5.6-instruct` 的命名风格。
-  - README:「破限工具」表新增 gpt-instruct 条目，子模块计数 50 → 51。
-  - `docs/dir-mappings.json`: 新增 `gpt-instruct` 的目录树描述。
-
-### 🔧 Fixed
-- **grok-register-panel**: 移除 `.gitmodules` 中的死声明（`4159db1` 声明为子模块，但该路径实际以普通文件提交、无 gitlink），此前会导致 `git submodule update --init` 尝试向非空目录 clone。目录内文件保持原样。
-- README: 子模块计数 51 → 50。
-
-
 ## [2.13.3] - 2026-09-20
 
 ### ✨ Added
