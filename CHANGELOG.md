@@ -13,6 +13,8 @@ All notable changes to this project will be documented in this file. This projec
   - `docs/dir-mappings.json`: 新增 `gpt-instruct` 的目录树描述。
 
 ### 🔧 Fixed
+- **grok-register-panel**: 移除 `.gitmodules` 中的死声明（`4159db1` 声明为子模块，但该路径实际以普通文件提交、无 gitlink），此前会导致 `git submodule update --init` 尝试向非空目录 clone。目录内文件保持原样。
+- README: 子模块计数 51 → 50。
 
 
 ## [2.13.3] - 2026-09-20

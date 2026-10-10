@@ -273,7 +273,7 @@ find . -name "requirements.txt" -not -path "*/node_modules/*" -exec pip install 
 
 ---
 
-## 📋 子模块列表 (共 51 个)
+## 📋 子模块列表 (共 50 个)
 
 | 分类 | 路径 | 核心功能 |
 | :--- | :--- | :--- |
