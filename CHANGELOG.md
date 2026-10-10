@@ -10,7 +10,6 @@ All notable changes to this project will be documented in this file. This projec
 - feat: 新增 gpt-instruct 破限子模块
 
 ### 🔧 Fixed
-- fix(docs): 移除虚构的 [2.13.4] CHANGELOG 条目
 - fix: 移除 grok-register-panel 的无效子模块声明
 - fix(ci): 修复发行工作流被孤儿 tag 卡死
 
