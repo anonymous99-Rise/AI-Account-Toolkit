@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file. This projec
 
 ---
 
+## [2.14.0] - 2026-10-20
+
+### ✨ Added
+- feat: 新增寒霜破甲工具 v2.0.2 (workbuddy 可用)
+
+### 🔧 Fixed
+
+
 ## [2.13.6] - 2026-10-10
 
 ### ✨ Added
