@@ -205,6 +205,7 @@ AI-Account-Toolkit/
 | **ctf-sandbox** | 小刘破甲：针对 gpt-5.6-sol / gpt-5.5 的 Codex CLI 破限提示词与一键部署（deploy / ask / check）。 |
 | **MD** | Claude 端 `CLAUDE.md` 破限指令模板（云技能 `$l-*` 加载 + W-License 流程）。 |
 | **小钻风破甲.7z** | 穿甲破限合集归档（Git LFS 跟踪）。 |
+| **寒霜破甲工具 v2.0.2** | 寒霜破甲 Electron 便携版（`DFYX/hanshuang-pojia-2.0.2.zip`，Git LFS 跟踪）：workbuddy / Claude Code / Cursor / 豆包 / DSH / opencode / zcode 一键注入脚本 + CT Attack-Defense Prompt v5.2 提示词与逆向手册。 |
 | **omni-flow 羊** | 全域安全研究 skill 路由器：按任务自动匹配最贴切的已装技能（二进制 / Web·API / 移动 / 云 / 身份 / 密码学 / 固件 / 恶意代码 / 流量 / 本地 CTF），附启动、路由、报告与分域 playbook。 |
 | **grok4.6-小码酱.md** | Grok 4.6 破限指令（小码酱 persona 版）。 |
 | **富江codex全破 GPT6全破.zip** | Codex / GPT-6 破限合集：多语言变体提示词 + PowerShell 一键安装脚本。 |
